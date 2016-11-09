@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Styles at a glance
-category: jekyll 
+title:  Documentation
+category: docs
 ---
 # VPKit documentation
 
@@ -65,7 +65,7 @@ VPKVeepViewer(image, view)
 ??? [VPKVeepViewer viewerWithImage image:image view:view]
 ```
 
-###User generated content
+### User generated content
 If you want to allow your users to VEEP their own user generated content from within your app, you can open the VEEP editor:
 
 ```swift
@@ -76,7 +76,7 @@ VPKVeepEditor(image, view)
 ??? [VPKVeepEditor viewerWithImage image:image view:view]
 ```
 
-###Customization
+### Customization
 
 All UI in VPKit is customizable to fit in with your app UI design. The following example makes the navigation bar red:
 
@@ -165,13 +165,12 @@ All UI in VPKit is customizable to fit in with your app UI design. The following
 	@property (nonatomic, strong) UIColor* on;
 	@property (nonatomic, strong) UIColor* off;
 
-          
 
 
+## Common Problems
 
-### Common Problems
+### WebView not loading
 
-#### WebView not loading
 Ensure that you have the ```App Transport Security Settings``` key your project's Custom iOS Target Properties. This should be a dictionary with a key: ```Allow Arbitrary Loads``` set to ```YES``` This will ensure the correct app permissions are set in order for the web view to appear.
 
 ```xml
