@@ -48,11 +48,17 @@
   border: 1px dashed #eeeeee;
 
 }
+
+#central_part{
+  margin: 0 auto;
+}
+
 .column,
 .columns {
   width: 100%;
-  float: right;
-  box-sizing: border-box; }
+  // float: right;
+  box-sizing: border-box; 
+  }
 
 /* For devices larger than 400px */
 @media (min-width: 401px) {
