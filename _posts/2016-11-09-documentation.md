@@ -25,10 +25,7 @@ To create a VEEP, simply tap the CREATE DEMO IMAGE (NUMBER IN SEQUENCE). This wi
 #### Defining a VEEP track
 
 <!--![](../assets/img/add_veep.png)-->
-![](../assets/img/consume_1a.png)
-![](../assets/img/consume_2.png)	
-![](../assets/img/consume_3.png)	
-![](../assets/img/consume_4.png)	
+![](../assets/img/consume.jpg)
 
 
 To define a veep track on a veep, the user first taps an object of interest in the media from within the veep editor (NUMBER IN SEQUENCE). The user can then manipulate the bounding box while choosing their URL (NUMBER IN SEQUENCE). To choose a URL, the user is prompted to search google. After the user leaves Google they will be allowed to save the veep.
@@ -37,7 +34,7 @@ This is the flow for the creation of a veep. A user is presented an image with c
 
 ### Previewing a VEEP
 
-![](../assets/img/preview_veep.png)
+![](../assets/img/create.jpg)
 
 This is the flow for the consumption of a veep. A user can easily identify VEEPIO interactive media by the appearence of the VEEPIO icon. A User taps on an image to learn if veep tracks are interactive within media content. The user is then presented with the coach marks around media image. Coached marked images are interactive. Click on interactive object of intrest to view product preview in a webview below media. Click expand icon " ^ " to view webview in full screen mode. Click "X" icon to exit full screen web view. Tap screen below interative media to return to home feed. 
 
