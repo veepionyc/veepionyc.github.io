@@ -3,8 +3,7 @@ layout: post
 title:  Styles at a glance
 category: jekyll 
 ---
-
-#VPKit documentation
+# VPKit documentation
 
 VPKit is an iOS SDK for generating interactive media which provides a seamless transition from a social feed to an e-commerce experience.
 
@@ -13,7 +12,7 @@ To use VPKit, you might decide to replace an UIImage with a VPKPreview. Your ima
 A VEEP is a metadata object defining the transition from an image or video in a social feed to an e-commerce experience or a URL.
 
 
-##Installation with Binary
+## Installation with Binary
 
 1. Drag and drop the binary blob into your XCode project
 2. Ensure that you have the ```App Transport Security Settings``` key your project's Custom iOS Target Properties. This should be a dictionary with a key: ```Allow Arbitrary Loads``` set to ```YES``` This will ensure the correct app permissions are set in order for the web view to appear.
