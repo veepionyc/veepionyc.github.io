@@ -1,3 +1,9 @@
+---
+layout: post
+title:  Styles at a glance
+category: jekyll 
+---
+
 #VPKit documentation
 
 VPKit is an iOS SDK for generating interactive media which provides a seamless transition from a social feed to an e-commerce experience.
