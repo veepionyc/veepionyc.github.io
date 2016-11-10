@@ -20,7 +20,7 @@ For installation help and more information: __sdk_support@veepio.com__ or use th
 
 ## A little more about the SDK
 
-VPKit is supplied as a pre-compiled dynamic framework ready for drag-and-drop use in your Swift or Objective-C iOS project. A demo app is provided in each language showing how to incorprate and use the SDK.
+VPKit is supplied as a pre-compiled dynamic framework ready for drag-and-drop use in your Swift or Objective-C iOS project. A demo app is provided in each language showing how to incorporate and use the SDK.
 
 ### Viewing a VEEP image
 ![](../assets/img/consume.jpg)
@@ -44,7 +44,7 @@ The demo app includes a CREATE image to show how veep content is originated.
 
 - Tapping the CREATE image launches the `VPKVeepEditor` view controller. 
 - The user may add veep tracks by tapping an area of interest in the image. 
-- Each track can be moved and reshaped by maniupulating it's bounding box. 
+- Each track can be moved and reshaped by manipulating it's bounding box. 
 - Each track can also be associated with a URL using the Google and Amazon search pages. 
 - After defining one or more  veep tracks, the user can published the veep. 
 - This will send the Veep metadata to Veepio's hosting servers and return a VeepID for you to store in your app. 
@@ -64,7 +64,7 @@ __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 ![](../assets/img/project-general.png)   
 
 
-- Add the ```App Transport Security Settings``` key to your poject's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```   
+- Add the ```App Transport Security Settings``` key to your project's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```   
 
 This will ensure the correct app permissions are set in order for the web view to appear.
 
@@ -112,7 +112,7 @@ This is also a good place to add any custom fonts and colours to the veep viewer
 The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.   
 - `VPKPreview` is a drop-in replacement for a `UIImageView`.   
 - It is initialised with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.   
-- It provides an animated VEEP icon to indicate that an image is interactve.
+- It provides an animated VEEP icon to indicate that an image is interactive.
 
     //objective-C
      self.vpkPreview = [[VPKPreview alloc] init];
@@ -134,7 +134,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 
 #### VPKVeepViewer
 
-The `VPKVeepViewer` view Controller is initialised with a `VPKImage` and it's associated `VPKPreview`. 
+The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and it's associated `VPKPreview`. 
 These methods are delegate callbacks from the VPKPreview on receiving a use touch event:
 
 	 //swift
@@ -156,7 +156,7 @@ These methods are delegate callbacks from the VPKPreview on receiving a use touc
 	    [self presentViewController:self.vpViewer animated:YES completion:nil];
 	}
 
-(NB: If you don't set a delegate on VPKPreview, these methods can be ommitted and similar behaviour is provided by defualt from the VPKPreview object itself)
+(NB: If you don't set a delegate on VPKPreview, these methods can be omitted and similar behaviour is provided by defualt from the VPKPreview object itself)
 
 
 
