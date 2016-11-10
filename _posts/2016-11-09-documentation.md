@@ -47,7 +47,7 @@ The demo app includes a CREATE image to show how veep content is originated.
 
 The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
 
-##Downloading VPKit framework and demos
+## Downloading VPKit framework and demos
 
 The demo apps are hosted on Github with pre-compiled binary VPKit Framework  
 [github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)
