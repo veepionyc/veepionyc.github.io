@@ -30,23 +30,21 @@ VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview`
 - Swipe the image to dismiss the `VPKVeepViewer` and return to your place in the hosting app. 
 
 
-### Creating a VEEP
-
-
-To create a VEEP, simply tap the CREATE demo image (NUMBER IN SEQUENCE). This will launch the veep editor (NUMBER IN SEQUENCE). The user is then prompted to add a veep track by tapping an object of interest within media. Veep tracks define an object of interest within an area of image. Veep tracks tapped during media consumption will send users to a URL. After defining a number of veep tracks, the user can use the Publish button to finalize the veep (NUMBER IN SEQUENCE).
-
-#### Defining a VEEP track
+### Creating a VEEP image
 
 <!--![](../assets/img/add_veep.png)-->
 ![](../assets/img/create.jpg)
 
-To define a veep track on a veep, the user first taps an object of interest in the media from within the veep editor (NUMBER IN SEQUENCE). The user can then manipulate the bounding box while choosing their URL (NUMBER IN SEQUENCE). To choose a URL, the user is prompted to search google. After the user leaves Google they will be allowed to save the veep.
+The demo app includes a CREATE image to show how veep content is originated.
 
-This is the flow for the creation of a veep. A user is presented an image with coach marks. A user then manipulates the coach marks around a veep track that they wish to tag. A user is then prompted to search for the URL which will be associated to the veep track. A user is then prompted to publish the content when ready.
+- Tapping the CREATE image launches the `VPKVeepEditor` view controller. 
+- The user may add veep tracks by tapping an area of interest in the image. 
+- Each track can be moved and reshaped by maniupulating it's bounding box. 
+- Each track can also be associated with a URL using the Google and Amazon search pages. 
+- After defining one or more  veep tracks, the user can published the veep. 
+- This will send the Veep metadata to Veepio's hosting servers and return a VeepID for you to store in your app. 
 
-
-
-
+The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
 
 
 ## Installation with Binary
