@@ -8,7 +8,7 @@ category: docs
 
 VPKit is an iOS SDK for generating interactive media which provides a seamless transition from a social feed to an e-commerce experience.
 
-To use VPKit, you might decide to replace an UIImage with a VPKPreview. Your image is now interactive, and your team can manage the journey and gain analytical insight.
+To use VPKit, you might decide to replace a UIImageView with a VPKPreview. Your image is now interactive, and your team can manage the journey and gain analytical insight.
 
 A VEEP is a metadata object defining the transition from an image or video in a social feed to an e-commerce experience or a URL.
 
@@ -16,27 +16,35 @@ A VEEP is a metadata object defining the transition from an image or video in a 
 
 ## A little more about the SDK
 
+VPKit is supplied as a pre-compiled dynamic framework ready for drag-and-drop use in your Swift or Objective-C iOS project. A demo app is provided in each language showing how to incorprate and use the SDK.
+
+### Viewing a VEEP image
+![](../assets/img/consume.jpg)
+
+VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview` imageViews.  
+- Tapping a preview image launches the `VPKVeepViewer` view controller.  
+- Interactive areas of images are marked by veep track borders.  
+- Click on veep track to view linked web content  below the media.   
+- Click the expand icon " ^ " to view the webview in full screen mode.  
+- Click "X" icon to exit full screen web view.   
+- Swipe the image to dismiss the `VPKVeepViewer` and return to your place in the hosting app. 
+
+
 ### Creating a VEEP
 
-TODO: VEEP CREATION SEQUENCE DIAGRAM
 
-To create a VEEP, simply tap the CREATE DEMO IMAGE (NUMBER IN SEQUENCE). This will launch the veep editor (NUMBER IN SEQUENCE). The user is then prompted to add a veep track by tapping an object of interest within media. Veep tracks define an object of interest within an area of image. Veep tracks tapped during media consumption will send users to a URL. After defining a number of veep tracks, the user can use the Publish button to finalize the veep (NUMBER IN SEQUENCE).
+To create a VEEP, simply tap the CREATE demo image (NUMBER IN SEQUENCE). This will launch the veep editor (NUMBER IN SEQUENCE). The user is then prompted to add a veep track by tapping an object of interest within media. Veep tracks define an object of interest within an area of image. Veep tracks tapped during media consumption will send users to a URL. After defining a number of veep tracks, the user can use the Publish button to finalize the veep (NUMBER IN SEQUENCE).
 
 #### Defining a VEEP track
 
 <!--![](../assets/img/add_veep.png)-->
-![](../assets/img/consume.jpg)
-
+![](../assets/img/create.jpg)
 
 To define a veep track on a veep, the user first taps an object of interest in the media from within the veep editor (NUMBER IN SEQUENCE). The user can then manipulate the bounding box while choosing their URL (NUMBER IN SEQUENCE). To choose a URL, the user is prompted to search google. After the user leaves Google they will be allowed to save the veep.
 
 This is the flow for the creation of a veep. A user is presented an image with coach marks. A user then manipulates the coach marks around a veep track that they wish to tag. A user is then prompted to search for the URL which will be associated to the veep track. A user is then prompted to publish the content when ready.
 
-### Previewing a VEEP
 
-![](../assets/img/create.jpg)
-
-This is the flow for the consumption of a veep. A user can easily identify VEEPIO interactive media by the appearence of the VEEPIO icon. A User taps on an image to learn if veep tracks are interactive within media content. The user is then presented with the coach marks around media image. Coached marked images are interactive. Click on interactive object of intrest to view product preview in a webview below media. Click expand icon " ^ " to view webview in full screen mode. Click "X" icon to exit full screen web view. Tap screen below interative media to return to home feed. 
 
 
 
