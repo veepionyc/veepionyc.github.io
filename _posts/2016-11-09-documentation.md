@@ -21,8 +21,9 @@ VPKit is supplied as a pre-compiled dynamic framework ready for drag-and-drop us
 ### Viewing a VEEP image
 ![](../assets/img/consume.jpg)
 
-VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview` imageViews.  
-- Tapping a preview image launches the `VPKVeepViewer` view controller.  
+VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview` imageViews.   
+ 
+- Tapping the CONSUME image (a `VPKPreview`) launches the `VPKVeepViewer` view controller.  
 - Interactive areas of images are marked by veep track borders.  
 - Click on veep track to view linked web content  below the media.   
 - Click the expand icon " ^ " to view the webview in full screen mode.  
@@ -46,35 +47,43 @@ The demo app includes a CREATE image to show how veep content is originated.
 
 The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
 
+##Downloading VPKit framework and demos
 
-## Installation with Binary
+The demo apps are hosted on Github with pre-compiled binary VPKit Framework  
+[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)
 
-1. Drag and drop the binary blob into your XCode project
-2. Ensure that you have the ```App Transport Security Settings``` key your project's Custom iOS Target Properties. This should be a dictionary with a key: ```Allow Arbitrary Loads``` set to ```YES``` This will ensure the correct app permissions are set in order for the web view to appear.
+## Installation with Binary in your app
 
-```xml
- <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict> 
-```
-3. Follow the usage instructions below
+- Drag and drop the `VPKit.framework` binary into your XCode project  
+- Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
+
+![](../assets/img/project-general.png)   
+
+
+- Add the ```App Transport Security Settings``` key to your poject's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```   
+
+This will ensure the correct app permissions are set in order for the web view to appear.
+
+	xml
+	 <key>NSAppTransportSecurity</key>
+	    <dict>
+	        <key>NSAllowsArbitraryLoads</key>
+	        <true/>
+	    </dict> 
 
     
 ## Usage
 
 ### Initialization
 
-Firstly, you'll need to introduce your application to VEEPIO
+Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this.
 
-```swift
-VPKit.setApplicationIdentifier("Veepio-iOS")
-```
+	[swift]
+	VPKit.setApplicationIdentifier("Veepio-iOS")
 
-```objective-c
-[VPKit setApplicationIdentifier appID:@"Veepio-iOS"]
-```
+	
+	[objective-c]
+	[VPKit setApplicationIdentifier appID:@"Veepio-iOS"]
 
 Next, you'll need to assign a unique identifier for your users. This might be a random string, or an ???advertising id???, or a username or an email address.
 
