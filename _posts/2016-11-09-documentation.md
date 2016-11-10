@@ -14,6 +14,8 @@ A VEEP is a metadata object defining the transition from an image or video in a 
 
 The SDK can be [downloaded from our Github repository](http://www.github.com/veepionyc/VPKitDemo)
 
+For installation help and more information: sdk_support@veepio.com
+
 
 ## A little more about the SDK
 
@@ -267,7 +269,10 @@ The following example makes the navigation bar red:
 	@property (nonatomic, strong) UIColor* cellMidGrey; 
 	
 
+## Support
 
+
+For installation help and more information: sdk_support@veepio.com
 
 
 
