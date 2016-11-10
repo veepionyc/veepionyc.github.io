@@ -12,7 +12,7 @@ To use VPKit, you might decide to replace a UIImageView with a VPKPreview. Your 
 
 A VEEP is a metadata object defining the transition from an image or video in a social feed to an e-commerce experience or a URL.
 
-The SDK can be [downloaded from our Github repository](http://www.github.com/veepionyc/VPKitDemo)
+The SDK can be __[downloaded from our Github repository](http://www.github.com/veepionyc/VPKitDemo)__
 
 For installation help and more information: sdk_support@veepio.com
 
@@ -53,7 +53,7 @@ The VEEP metadata can in turn be consumed using a `VPKPreview` object as mention
 ## Downloading VPKit framework and demos
 
 The demo apps are hosted on Github with pre-compiled binary VPKit Framework  
-[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)
+__[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
 ## Installation with Binary in your app
 
