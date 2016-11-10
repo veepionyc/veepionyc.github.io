@@ -74,63 +74,124 @@ This will ensure the correct app permissions are set in order for the web view t
     
 ## Usage
 
-### Initialization
+### Initialization in your App Delegate
 
 Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this.
 
-	[swift]
+	//swift
 	VPKit.setApplicationIdentifier("Veepio-iOS")
 
 	
-	[objective-c]
+	//objective-c
 	[VPKit setApplicationIdentifier appID:@"Veepio-iOS"]
+	
+This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
-Next, you'll need to assign a unique identifier for your users. This might be a random string, or an ???advertising id???, or a username or an email address.
+	//swift
+    VPKit.styles().margin = 12
+    VPKit.styles().color.navBar = UIColor.init(white: 0.1, alpha: 1.0)
+    VPKit.styles().font.navBarFont = UIFont .systemFont(ofSize: 18, weight: UIFontWeightHeavy);
+    VPKit.styles().font.cellNavBarFont = UIFont .systemFont(ofSize: 14, weight: UIFontWeightBold);
+
+
+	//objecive-C
+    [VPKit styles].margin = 12;
+    VPKit.styles.color.navBar = [UIColor colorWithWhite:0.1 alpha:1.0];
+    VPKit.styles.font.navBarFont = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
+    VPKit.styles.font.cellNavBarFont = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
+
 
 ### Viewing
-The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI. `VPKPreview` is a drop-in replacement for an `UIImage` that accepts an extra argument `veepID` on initialization. The SDK provides functionality for creating a VEEP, but we've also created a test image and a test VEEP. The app developer may typically store the VEEP id in their database.
 
-```swift
-imageView.image = VPKImage(image: foo, veepID: 1234)
-```
+#### VPKPreview 
 
-```objc
-imageView.image = [VPKImage initWithImage image:foo image, veepID: 1234)
-```
+The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.   
+- `VPKPreview` is a drop-in replacement for a `UIImageView`.   
+- It is initialised with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.   
+- It provides an animated VEEP icon to indicate that an image is interactve.
 
-### Manual VEEP viewer instantiation
-The `VPKImage` class is necessary to measure the proportion of users who view tap an image having seen it. However, if you don't need this important engagement metric, you can open the VEEP viewer manually.
+    //objective-C
+     self.vpkPreview = [[VPKPreview alloc] init];
+    [self.view addSubview:self.vpkPreview];
+    UIImage* image = [UIImage imageNamed:@"KrispyGlas"];
+    image = [[VPKImage alloc] initWithImage:image veepID:@"658"];
+    self.vpkPreview.image = image;
+    
+    //swift
+     let preview = VPKPreview()
+      guard let image = UIImage.init(named: "KrispyGlas") else {return}
+      let previewImage: VPKImage = VPKImage(image: image, veepID:"658")
+      self.preview.image = previewImage;
+      self.preview.delegate = self
+      self.view.addSubview(self.preview)
 
-```swift
-VPKVeepViewer(image, view)
-```
 
-```objc
-??? [VPKVeepViewer viewerWithImage image:image view:view]
-```
 
-### User generated content
+
+#### VPKVeepViewer
+
+The `VPKVeepViewer` view Controller is initialised with a `VPKImage` and it's associated `VPKPreview`. 
+These methods are delegate callbacks from the VPKPreview on receiving a use touch event:
+
+	 //swift
+	 func vpkPreviewTouched(_ preview:VPKPreview, image:VPKImage){
+		guard let viewer = VPKit.viewer(with: image, from: preview) else {return}
+	    viewer.delegate = self
+	    viewer.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+	    preview.hideIcon()
+	    self.present(viewer, animated: true, completion: nil)
+    }
+
+    //objective-c
+	- (void)vpkPreviewTouched:(VPKPreview *)preview image:(VPKImage*)image {
+	    self.vpViewer = [VPKit viewerWithImage:image
+	                                  fromView:preview];
+	    self.vpViewer.delegate = self;
+	    self.vpViewer.modalPresentationStyle = UIModalPresentationOverFullScreen;
+	    [preview hideIcon];
+	    [self presentViewController:self.vpViewer animated:YES completion:nil];
+	}
+
+(NB: If you don't set a delegate on VPKPreview, these methods can be ommitted and similar behaviour is provided by defualt from the VPKPreview object itself)
+
+
+
+### Creating veep content 
+
 If you want to allow your users to VEEP their own user generated content from within your app, you can open the VEEP editor:
 
-```swift
-VPKVeepEditor(image, view)
-```
 
-```objc
-??? [VPKVeepEditor viewerWithImage image:image view:view]
-```
+	//swift
+    guard let vpEditor = VPKit.editor(with: image, from: self.imageButton) else {return}
+    vpEditor.useVeepLogo = false
+    vpEditor.delegate = self
+    vpEditor.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+    self.present(vpEditor, animated: true, completion: nil)
+    
+	//objective-C
+ 	self.vpEditor = [VPKit editorWithImage:self.imageButton.image
+                                  fromView:self.imageButton];
+    self.vpEditor.useVeepLogo = NO;
+    if (self.vpEditor) {
+        self.vpEditor.delegate = self;
+        self.vpEditor.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:self.vpEditor animated:YES completion:nil];
+    }
 
+ 
+ 
 ### Customization
 
-All UI in VPKit is customizable to fit in with your app UI design. The following example makes the navigation bar red:
+All UI in VPKit is customizable to fit in with your app UI design. 
 
-```swift
-    VPKColorStyles.navBar = UIColor.red()
-```
+The following example makes the navigation bar red:
 
-```objc
-    VPKColorStyles.navBar = [UIColor red]
-```
+	//swift
+    VPKit.styles().color.navbar = UIColor.red()
+
+	//objective-c
+    VPKit.styles.color.navbar = [UIColor red]
+
 
 ## Reference
 
@@ -155,9 +216,9 @@ All UI in VPKit is customizable to fit in with your app UI design. The following
 
     + (void)setApplicationIdentifier:(nonnull NSString*)appID;
     
-#### User identification
+<!--#### User identification
 
-    + (void)setEmail:(nullable NSString*)email;
+    + (void)setEmail:(nullable NSString*)email;-->
 	
 #### Consume Veep'd content
 
@@ -196,33 +257,18 @@ All UI in VPKit is customizable to fit in with your app UI design. The following
 
 #### VPKColorStyles
 
-	@property (nonatomic, strong) UIColor* navBar; //used
+	@property (nonatomic, strong) UIColor* navBar; 
 	@property (nonatomic, strong) UIColor* navBarText;
 	
-	@property (nonatomic, strong) UIColor* navBarLight; //used
-	@property (nonatomic, strong) UIColor* navBarDark; //used
-	@property (nonatomic, strong) UIColor* cellNavBar; //used
-	@property (nonatomic, strong) UIColor* cellMidGrey; //used
+	@property (nonatomic, strong) UIColor* navBarLight; 
+	@property (nonatomic, strong) UIColor* navBarDark; 
+	@property (nonatomic, strong) UIColor* cellNavBar; 
+	@property (nonatomic, strong) UIColor* cellMidGrey; 
 	
-	@property (nonatomic, strong) UIColor* searchBar;
-	@property (nonatomic, strong) UIColor* alert;
-	@property (nonatomic, strong) UIColor* on;
-	@property (nonatomic, strong) UIColor* off;
 
 
 
-## Common Problems
 
-### WebView not loading
 
-Ensure that you have the ```App Transport Security Settings``` key your project's Custom iOS Target Properties. This should be a dictionary with a key: ```Allow Arbitrary Loads``` set to ```YES``` This will ensure the correct app permissions are set in order for the web view to appear.
-
-```xml
- <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict> 
-```
                                   
    
