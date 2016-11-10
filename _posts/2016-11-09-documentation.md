@@ -80,14 +80,14 @@ This will ensure the correct app permissions are set in order for the web view t
 
 ### Initialization in your App Delegate
 
-Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this.
+Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this. The application identifier is a unique ID that identifies your app to the Veepio SDK. To obtain your application identifier, contact skd_support@veepio.com. For testing purposes you can use `VEEPIO_test_app_id`
 
 	//swift
-	VPKit.setApplicationIdentifier("Veepio-iOS")
+	VPKit.setApplicationIdentifier("VEEPIO_test_app_id")
 
-	
 	//objective-c
-	[VPKit setApplicationIdentifier appID:@"Veepio-iOS"]
+    [VPKit setApplicationIdentifier:@"VEEPIO_test_app_id"];
+
 	
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
