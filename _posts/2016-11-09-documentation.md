@@ -25,14 +25,14 @@ VPKit is supplied as a pre-compiled dynamic framework ready for drag-and-drop us
 ### Viewing a VEEP image
 ![](../assets/img/consume.jpg)
 
-VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview` imageViews.   
- 
-- Tapping the CONSUME image (a `VPKPreview`) launches the `VPKVeepViewer` view controller.  
-- Interactive areas of images are marked by veep track borders.  
-- Click on veep track to view linked web content  below the media.   
-- Click the expand icon " ^ " to view the webview in full screen mode.  
-- Click "X" icon to exit full screen web view.   
-- Swipe the image to dismiss the `VPKVeepViewer` and return to your place in the hosting app. 
+VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview` imageViews.
+
+- Tapping the CONSUME image (a `VPKPreview`) launches the `VPKVeepViewer` view controller.
+- Interactive areas of images are marked by veep track borders.
+- Click on veep track to view linked web content  below the media.
+- Click the expand icon " ^ " to view the webview in full screen mode.
+- Click "X" icon to exit full screen web view.
+- Swipe the image to dismiss the `VPKVeepViewer` and return to your place in the hosting app.
 
 
 ### Creating a VEEP image
@@ -42,29 +42,29 @@ VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview`
 
 The demo app includes a CREATE image to show how veep content is originated.
 
-- Tapping the CREATE image launches the `VPKVeepEditor` view controller. 
-- The user may add veep tracks by tapping an area of interest in the image. 
-- Each track can be moved and reshaped by manipulating it's bounding box. 
-- Each track can also be associated with a URL using the Google and Amazon search pages. 
-- After defining one or more  veep tracks, the user can published the veep. 
-- This will send the Veep metadata to Veepio's hosting servers and return a VeepID for you to store in your app. 
+- Tapping the CREATE image launches the `VPKVeepEditor` view controller.
+- The user may add veep tracks by tapping an area of interest in the image.
+- Each track can be moved and reshaped by manipulating it's bounding box.
+- Each track can also be associated with a URL using the Google and Amazon search pages.
+- After defining one or more  veep tracks, the user can published the veep.
+- This will send the Veep metadata to Veepio's hosting servers and return a VeepID for you to store in your app.
 
 The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
 
 ## Downloading VPKit framework and demos
 
-The demo apps are hosted on Github with pre-compiled binary VPKit Framework  
+The demo apps are hosted on Github with pre-compiled binary VPKit Framework
 __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
 ## Installation with Binary in your app
 
-- Drag and drop the `VPKit.framework` binary into your XCode project  
+- Drag and drop the `VPKit.framework` binary into your XCode project
 - Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
 
-![](../assets/img/project-general.png)   
+![](../assets/img/project-general.png)
 
 
-- Add the ```App Transport Security Settings``` key to your project's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```   
+- Add the ```App Transport Security Settings``` key to your project's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```
 
 This will ensure the correct app permissions are set in order for the web view to appear.
 
@@ -73,9 +73,9 @@ This will ensure the correct app permissions are set in order for the web view t
 	    <dict>
 	        <key>NSAllowsArbitraryLoads</key>
 	        <true/>
-	    </dict> 
+	    </dict>
 
-    
+
 ## Usage
 
 ### Initialization in your App Delegate
@@ -88,7 +88,7 @@ Firstly, you'll need to introduce your application to VEEPIO. The App Delegate i
 	//objective-c
     [VPKit setApplicationIdentifier:@"VEEPIO_test_app_id"];
 
-	
+
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
 	//swift
@@ -107,11 +107,11 @@ This is also a good place to add any custom fonts and colours to the veep viewer
 
 ### Viewing
 
-#### VPKPreview 
+#### VPKPreview
 
-The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.   
-- `VPKPreview` is a drop-in replacement for a `UIImageView`.   
-- It is initialized with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.   
+The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.
+- `VPKPreview` is a drop-in replacement for a `UIImageView`.
+- It is initialized with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.
 - It provides an animated VEEP icon to indicate that an image is interactive.
 
     //objective-C
@@ -120,7 +120,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
     UIImage* image = [UIImage imageNamed:@"KrispyGlas"];
     image = [[VPKImage alloc] initWithImage:image veepID:@"658"];
     self.vpkPreview.image = image;
-    
+
     //swift
      let preview = VPKPreview()
       guard let image = UIImage.init(named: "KrispyGlas") else {return}
@@ -134,7 +134,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 
 #### VPKVeepViewer
 
-The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and it's associated `VPKPreview`. 
+The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and it's associated `VPKPreview`.
 These methods are delegate callbacks from the VPKPreview on receiving a use touch event:
 
 	 //swift
@@ -160,7 +160,7 @@ These methods are delegate callbacks from the VPKPreview on receiving a use touc
 
 
 
-### Creating veep content 
+### Creating veep content
 
 If you want to allow your users to VEEP their own user generated content from within your app, you can open the VEEP editor:
 
@@ -171,7 +171,7 @@ If you want to allow your users to VEEP their own user generated content from wi
     vpEditor.delegate = self
     vpEditor.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
     self.present(vpEditor, animated: true, completion: nil)
-    
+
 	//objective-C
  	self.vpEditor = [VPKit editorWithImage:self.imageButton.image
                                   fromView:self.imageButton];
@@ -182,11 +182,11 @@ If you want to allow your users to VEEP their own user generated content from wi
         [self presentViewController:self.vpEditor animated:YES completion:nil];
     }
 
- 
- 
+
+
 ### Customization
 
-All UI in VPKit is customizable to fit in with your app UI design. 
+All UI in VPKit is customizable to fit in with your app UI design.
 
 The following example makes the navigation bar red:
 
@@ -202,8 +202,8 @@ The following example makes the navigation bar red:
 #### VPKImage
 
     @property (nonnull, nonatomic, strong, readonly) NSString* veepID;
- 
-    - (nonnull instancetype)initWithImage:(nonnull UIImage*)image   
+
+    - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
                                    veepID:(nonnull NSString*)veepID;
 `
 
@@ -213,33 +213,33 @@ The following example makes the navigation bar red:
     @property (nullable, nonatomic, strong) NSString* title;
     @property (nullable, nonatomic, strong) NSString* descriptionString;
     @property (nullable, nonatomic, strong) NSURL* originalContentURI;
-    
+
 ## VPKitClass methods
 
 #### Initialising VPKit
 
     + (void)setApplicationIdentifier:(nonnull NSString*)appID;
-    
+
 <!--#### User identification
 
     + (void)setEmail:(nullable NSString*)email;-->
-	
+
 #### Consume Veep'd content
 
-    + (nullable VPKVeepViewer*)viewerWithImage:(VPKImage*)image 
+    + (nullable VPKVeepViewer*)viewerWithImage:(VPKImage*)image
                                       fromView:(UIView*)view
 
 #### Create Veep'd content
 
-    + (nullable VPKVeepEditor*)editorWithImage:(UIImage*)image 
+    + (nullable VPKVeepEditor*)editorWithImage:(UIImage*)image
                                       fromView:(UIView*)view`
-                                      
+
 #### Fetch a VPKPublicVeep
 
-    + (void) requestVeep:(NSString*)veepID 
+    + (void) requestVeep:(NSString*)veepID
         completionBlock:^(VPKPublicVeep* _Nullable veep,
                           NSError* _Nullable error) completion;
-                          
+
 ## Controlling appearance
 
 #### VPKStyles
@@ -248,7 +248,7 @@ The following example makes the navigation bar red:
     @property (nonatomic, assign) CGFloat margin;
 
 #### VPKFontStyles
-	
+
 	@property (nonatomic, strong) UIFont* barButtonItemFontDisabled;
 	@property (nonatomic, strong) UIFont* barButtonItemFontEnabled;
 	@property (nonatomic, strong) UIFont* barButtonItemFont;
@@ -261,14 +261,14 @@ The following example makes the navigation bar red:
 
 #### VPKColorStyles
 
-	@property (nonatomic, strong) UIColor* navBar; 
+	@property (nonatomic, strong) UIColor* navBar;
 	@property (nonatomic, strong) UIColor* navBarText;
-	
-	@property (nonatomic, strong) UIColor* navBarLight; 
-	@property (nonatomic, strong) UIColor* navBarDark; 
-	@property (nonatomic, strong) UIColor* cellNavBar; 
-	@property (nonatomic, strong) UIColor* cellMidGrey; 
-	
+
+	@property (nonatomic, strong) UIColor* navBarLight;
+	@property (nonatomic, strong) UIColor* navBarDark;
+	@property (nonatomic, strong) UIColor* cellNavBar;
+	@property (nonatomic, strong) UIColor* cellMidGrey;
+
 
 ## Support
 
@@ -277,5 +277,5 @@ For installation help and more information: __sdk_support@veepio.com__ or use th
 
 
 
-                                  
-   
+
+
