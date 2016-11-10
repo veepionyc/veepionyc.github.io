@@ -14,7 +14,8 @@ A VEEP is a metadata object defining the transition from an image or video in a 
 
 The SDK can be __[downloaded from our Github repository](http://www.github.com/veepionyc/VPKitDemo)__
 
-For installation help and more information: sdk_support@veepio.com
+For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https://github.com/veepionyc/VPKitDemo/issues)__
+
 
 
 ## A little more about the SDK
@@ -272,7 +273,7 @@ The following example makes the navigation bar red:
 ## Support
 
 
-For installation help and more information: sdk_support@veepio.com
+For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https://github.com/veepionyc/VPKitDemo/issues)__
 
 
 
