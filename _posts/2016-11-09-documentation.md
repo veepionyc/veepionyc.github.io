@@ -111,7 +111,7 @@ This is also a good place to add any custom fonts and colours to the veep viewer
 
 The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.   
 - `VPKPreview` is a drop-in replacement for a `UIImageView`.   
-- It is initialised with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.   
+- It is initialized with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.   
 - It provides an animated VEEP icon to indicate that an image is interactive.
 
     //objective-C
@@ -156,7 +156,7 @@ These methods are delegate callbacks from the VPKPreview on receiving a use touc
 	    [self presentViewController:self.vpViewer animated:YES completion:nil];
 	}
 
-(NB: If you don't set a delegate on VPKPreview, these methods can be omitted and similar behaviour is provided by defualt from the VPKPreview object itself)
+(NB: If you don't set a delegate on VPKPreview, these methods can be omitted and similar behaviour is provided by default from the VPKPreview object itself)
 
 
 
