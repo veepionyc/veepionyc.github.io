@@ -68,13 +68,14 @@ __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
 This will ensure the correct app permissions are set in order for the web view to appear.
 
-	xml
-	 <key>NSAppTransportSecurity</key>
-	    <dict>
-	        <key>NSAllowsArbitraryLoads</key>
-	        <true/>
-	    </dict>
 
+```xml	
+<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict> 
+```
 
 ## Usage
 
@@ -82,28 +83,33 @@ This will ensure the correct app permissions are set in order for the web view t
 
 Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this. The application identifier is a unique ID that identifies your app to the Veepio SDK. To obtain your application identifier, contact skd_support@veepio.com. For testing purposes you can use `VEEPIO_test_app_id`
 
-	//swift
-	VPKit.setApplicationIdentifier("VEEPIO_test_app_id")
+```swift
+//Swift
+VPKit.setApplicationIdentifier("VEEPIO_test_app_id")
+```
 
-	//objective-c
-    [VPKit setApplicationIdentifier:@"VEEPIO_test_app_id"];
-
-
+```objc
+//objective-c
+[VPKit setApplicationIdentifier:@"VEEPIO_test_app_id"];
+```
+	
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
-	//swift
-    VPKit.styles().margin = 12
-    VPKit.styles().color.navBar = UIColor.init(white: 0.1, alpha: 1.0)
-    VPKit.styles().font.navBarFont = UIFont .systemFont(ofSize: 18, weight: UIFontWeightHeavy);
-    VPKit.styles().font.cellNavBarFont = UIFont .systemFont(ofSize: 14, weight: UIFontWeightBold);
+```swift
+//Swift
+VPKit.styles().margin = 12
+VPKit.styles().color.navBar = UIColor.init(white: 0.1, alpha: 1.0)
+VPKit.styles().font.navBarFont = UIFont .systemFont(ofSize: 18, weight: UIFontWeightHeavy);
+VPKit.styles().font.cellNavBarFont = UIFont .systemFont(ofSize: 14, weight: UIFontWeightBold);
+```
 
-
-	//objecive-C
-    [VPKit styles].margin = 12;
-    VPKit.styles.color.navBar = [UIColor colorWithWhite:0.1 alpha:1.0];
-    VPKit.styles.font.navBarFont = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
-    VPKit.styles.font.cellNavBarFont = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
-
+```objc
+//objecive-C
+[VPKit styles].margin = 12;
+VPKit.styles.color.navBar = [UIColor colorWithWhite:0.1 alpha:1.0];
+VPKit.styles.font.navBarFont = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
+VPKit.styles.font.cellNavBarFont = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
+```
 
 ### Viewing
 
@@ -114,20 +120,25 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 - It is initialized with a `VPKImage` - which is a `UIImage` subclass with added `VeepID` property.
 - It provides an animated VEEP icon to indicate that an image is interactive.
 
-    //objective-C
-     self.vpkPreview = [[VPKPreview alloc] init];
-    [self.view addSubview:self.vpkPreview];
-    UIImage* image = [UIImage imageNamed:@"KrispyGlas"];
-    image = [[VPKImage alloc] initWithImage:image veepID:@"658"];
-    self.vpkPreview.image = image;
 
-    //swift
-     let preview = VPKPreview()
-      guard let image = UIImage.init(named: "KrispyGlas") else {return}
-      let previewImage: VPKImage = VPKImage(image: image, veepID:"658")
-      self.preview.image = previewImage;
-      self.preview.delegate = self
-      self.view.addSubview(self.preview)
+```objc
+//objective-C
+self.vpkPreview = [[VPKPreview alloc] init];
+[self.view addSubview:self.vpkPreview];
+UIImage* image = [UIImage imageNamed:@"KrispyGlas"];
+image = [[VPKImage alloc] initWithImage:image veepID:@"658"];
+self.vpkPreview.image = image;
+```
+
+```swift
+//swift
+let preview = VPKPreview()
+guard let image = UIImage.init(named: "KrispyGlas") else {return}
+let previewImage: VPKImage = VPKImage(image: image, veepID:"658")
+self.preview.image = previewImage;
+self.preview.delegate = self
+self.view.addSubview(self.preview)
+```
 
 
 
@@ -137,24 +148,28 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and it's associated `VPKPreview`.
 These methods are delegate callbacks from the VPKPreview on receiving a use touch event:
 
-	 //swift
-	 func vpkPreviewTouched(_ preview:VPKPreview, image:VPKImage){
-		guard let viewer = VPKit.viewer(with: image, from: preview) else {return}
-	    viewer.delegate = self
-	    viewer.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-	    preview.hideIcon()
-	    self.present(viewer, animated: true, completion: nil)
-    }
+```swift
+//swift
+func vpkPreviewTouched(_ preview:VPKPreview, image:VPKImage){
+	guard let viewer = VPKit.viewer(with: image, from: preview) else {return}
+    viewer.delegate = self
+    viewer.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+    preview.hideIcon()
+    self.present(viewer, animated: true, completion: nil)
+}
+```
 
-    //objective-c
-	- (void)vpkPreviewTouched:(VPKPreview *)preview image:(VPKImage*)image {
-	    self.vpViewer = [VPKit viewerWithImage:image
-	                                  fromView:preview];
-	    self.vpViewer.delegate = self;
-	    self.vpViewer.modalPresentationStyle = UIModalPresentationOverFullScreen;
-	    [preview hideIcon];
-	    [self presentViewController:self.vpViewer animated:YES completion:nil];
-	}
+```objc
+//objective-c
+- (void)vpkPreviewTouched:(VPKPreview *)preview image:(VPKImage*)image {
+    self.vpViewer = [VPKit viewerWithImage:image
+                                  fromView:preview];
+    self.vpViewer.delegate = self;
+    self.vpViewer.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [preview hideIcon];
+    [self presentViewController:self.vpViewer animated:YES completion:nil];
+}
+```
 
 (NB: If you don't set a delegate on VPKPreview, these methods can be omitted and similar behaviour is provided by default from the VPKPreview object itself)
 
@@ -164,37 +179,43 @@ These methods are delegate callbacks from the VPKPreview on receiving a use touc
 
 If you want to allow your users to VEEP their own user generated content from within your app, you can open the VEEP editor:
 
-
-	//swift
-    guard let vpEditor = VPKit.editor(with: image, from: self.imageButton) else {return}
-    vpEditor.useVeepLogo = false
-    vpEditor.delegate = self
-    vpEditor.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-    self.present(vpEditor, animated: true, completion: nil)
-
-	//objective-C
- 	self.vpEditor = [VPKit editorWithImage:self.imageButton.image
-                                  fromView:self.imageButton];
-    self.vpEditor.useVeepLogo = NO;
-    if (self.vpEditor) {
-        self.vpEditor.delegate = self;
-        self.vpEditor.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [self presentViewController:self.vpEditor animated:YES completion:nil];
-    }
-
-
-
+```swift
+//swift
+guard let vpEditor = VPKit.editor(with: image, from: self.imageButton) else {return}
+vpEditor.useVeepLogo = false
+vpEditor.delegate = self
+vpEditor.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+self.present(vpEditor, animated: true, completion: nil)
+```
+  
+```objc
+//objective-C
+self.vpEditor = [VPKit editorWithImage:self.imageButton.image
+                              fromView:self.imageButton];
+self.vpEditor.useVeepLogo = NO;
+if (self.vpEditor) {
+    self.vpEditor.delegate = self;
+    self.vpEditor.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self presentViewController:self.vpEditor animated:YES completion:nil];
+}
+```
+ 
+ 
 ### Customization
 
 All UI in VPKit is customizable to fit in with your app UI design.
 
 The following example makes the navigation bar red:
 
-	//swift
-    VPKit.styles().color.navbar = UIColor.red()
+```swift
+//swift
+VPKit.styles().color.navbar = UIColor.red()
+```
 
-	//objective-c
-    VPKit.styles.color.navbar = [UIColor red]
+```objc
+//objective-c
+VPKit.styles.color.navbar = [UIColor red]
+```
 
 
 ## Reference
@@ -205,7 +226,7 @@ The following example makes the navigation bar red:
 
     - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
                                    veepID:(nonnull NSString*)veepID;
-`
+
 
 #### VPKPublicVeep
 

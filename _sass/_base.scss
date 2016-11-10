@@ -180,14 +180,12 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #222;
+  color: #a00;
   text-decoration: none;
-  //background-color: transparent;
-  -webkit-transition: color .4s;
-  transition: color .4s;
+  transition: all ease-in-out .4s;
 }
 a:hover {
-  color: #b1b1b1;
+  color: #a00;
   text-decoration: underline;
 }
 
