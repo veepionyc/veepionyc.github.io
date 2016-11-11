@@ -68,7 +68,7 @@
 }
 
 /* For devices larger than 780px */
-dsmedia (min-width: 781px) {
+@media (min-width: 781px) {
   .container {
     width: 90%; }
   .column,
