@@ -68,7 +68,7 @@
 }
 
 /* For devices larger than 780px */
-@media (min-width: 781px) {
+dsmedia (min-width: 781px) {
   .container {
     width: 90%; }
   .column,
@@ -180,7 +180,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #a00;
+  color: #31C2C7;
   text-decoration: none;
   transition: all ease-in-out .4s;
 }
