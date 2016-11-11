@@ -29,7 +29,7 @@ VEEPIO interactive media are identified by the Veep icon overlay in `VPKPreview`
 
 - Tapping the CONSUME image (a `VPKPreview`) launches the `VPKVeepViewer` view controller.
 - Interactive areas of images are marked by veep track borders.
-- Click on veep track to view linked web content  below the media.
+- Click on veep track to view linked web content below the media.
 - Click the expand icon " ^ " to view the webview in full screen mode.
 - Click "X" icon to exit full screen web view.
 - Swipe the image to dismiss the `VPKVeepViewer` and return to your place in the hosting app.
@@ -44,9 +44,9 @@ The demo app includes a CREATE image to show how veep content is originated.
 
 - Tapping the CREATE image launches the `VPKVeepEditor` view controller.
 - The user may add veep tracks by tapping an area of interest in the image.
-- Each track can be moved and reshaped by manipulating it's bounding box.
+- Each track can be moved and reshaped by manipulating its bounding box.
 - Each track can also be associated with a URL using the Google and Amazon search pages.
-- After defining one or more  veep tracks, the user can published the veep.
+- After defining one or more  veep tracks, the user can publish the veep.
 - This will send the Veep metadata to Veepio's hosting servers and return a VeepID for you to store in your app.
 
 The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
@@ -145,7 +145,7 @@ self.view.addSubview(self.preview)
 
 #### VPKVeepViewer
 
-The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and it's associated `VPKPreview`.
+The `VPKVeepViewer` view Controller is initialized with a `VPKImage` and its associated `VPKPreview`.
 These methods are delegate callbacks from the VPKPreview on receiving a use touch event:
 
 ```swift
@@ -237,7 +237,7 @@ VPKit.styles.color.navbar = [UIColor red]
 
 ## VPKitClass methods
 
-#### Initialising VPKit
+#### Initializing VPKit
 
     + (void)setApplicationIdentifier:(nonnull NSString*)appID;
 
