@@ -56,6 +56,7 @@ The VEEP metadata can in turn be consumed using a `VPKPreview` object as mention
 The demo apps are hosted on Github with pre-compiled binary VPKit Framework
 __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
+<a name = "Installation"> </a>
 ## Installation with Binary in your app
 
 - Drag and drop the `VPKit.framework` binary into your XCode project
