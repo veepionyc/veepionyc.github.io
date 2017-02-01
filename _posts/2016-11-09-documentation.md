@@ -64,18 +64,22 @@ __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 ![](../assets/img/project-general.png)
 
 
-- Add the ```App Transport Security Settings``` key to your project's info.plist, with a sub-key of ```Allow Arbitrary Loads``` set to ```YES```
+- Add the ```App Transport Security Settings``` key to your project's info.plist, with  sub-keys:
+    -   `Allow Arbitrary Loads : YES`
+    -   `Allow Arbitrary Loads in Web Content : YES` 
 
-This will ensure the correct app permissions are set in order for the web view to appear.
+`NSAllowsArbitraryLoadsInWebContent` is the correct key for iOS 10; `NSAllowsArbitraryLoads` is the fallback setting for iOS 9 and is ignored if the former key is available for iOS 10.
+		
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
+	
+This will ensure the correct app permissions are set in order for the web view to appear. Apple have indicated that setting these to 'YES' will require justification when submitting to the app store - although this restriction has not been implemented yet.  
 
-
-```xml	
-<key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict> 
-```
 
 ## Usage
 
