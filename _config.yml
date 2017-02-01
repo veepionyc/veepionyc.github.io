@@ -19,6 +19,7 @@ github_username:
 markdown: kramdown
 kramdown:
   input: GFM
+  auto_ids: true # Auto-generate ID's for headings
 
 # Third-party services
 # just leave someone empty to disable it
