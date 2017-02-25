@@ -91,26 +91,25 @@ For testing purposes you can use the identifiers for the Veepio test app:
 
 ```swift
 //Swift
- let appID = "VEEPIO_test_app_id"
+let appID = "VEEPIO_test_app_id"
 let clientID = "VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53"
 let clientSecret = "OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF"
         
 VPKit.setApplicationId(appID,
-                   clientId: clientID,
-               clientSecret: clientSecret)
+             clientId: clientID,
+         clientSecret: clientSecret)
 ```
 
 ```objc
 //objective-c
 
-    NSString* appID = @"VEEPIO_test_app_id";
-    NSString* clientID = @"VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53";
-    NSString* clientSecret = @"OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF";
-
+NSString* appID = @"VEEPIO_test_app_id";
+NSString* clientID = @"VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53";
+NSString* clientSecret = @"OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF";
 	    
-	[VPKit setApplicationId:appID
-	              clientId:clientID
-	           clientSecret:clientSecret];
+[VPKit setApplicationId:appID
+               clientId:clientID
+           clientSecret:clientSecret];
 ```
 	
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
