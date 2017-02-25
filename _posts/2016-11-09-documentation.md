@@ -85,16 +85,32 @@ This will ensure the correct app permissions are set in order for the web view t
 
 ### Initialization in your App Delegate
 
-Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this. The application identifier is a unique ID that identifies your app to the Veepio SDK. To obtain your application identifier, contact skd_support@veepio.com. For testing purposes you can use `VEEPIO_test_app_id`
+Firstly, you'll need to introduce your application to VEEPIO. The App Delegate is a good location for this. A triplet of unique strings identify your app to the Veepio SDK: appID, clientID and clientSecret. To obtain these identifiers, contact skd_support@veepio.com. 
+
+For testing purposes you can use the identifiers for the Veepio test app:
 
 ```swift
 //Swift
-VPKit.setApplicationIdentifier("VEEPIO_test_app_id")
+ let appID = "VEEPIO_test_app_id"
+let clientID = "VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53"
+let clientSecret = "OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF"
+        
+VPKit.setApplicationId(appID,
+                   clientId: clientID,
+               clientSecret: clientSecret)
 ```
 
 ```objc
 //objective-c
-[VPKit setApplicationIdentifier:@"VEEPIO_test_app_id"];
+
+    NSString* appID = @"VEEPIO_test_app_id";
+    NSString* clientID = @"VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53";
+    NSString* clientSecret = @"OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF";
+
+	    
+	[VPKit setApplicationId:appID
+	              clientId:clientID
+	           clientSecret:clientSecret];
 ```
 	
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
