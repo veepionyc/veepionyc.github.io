@@ -51,17 +51,36 @@ The demo app includes a CREATE image to show how veep content is originated.
 
 The VEEP metadata can in turn be consumed using a `VPKPreview` object as mentioned above.
 
-## Downloading VPKit framework and demos
 
-The demo apps are hosted on Github with pre-compiled binary VPKit Framework
-__[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
-## Installation with Binary in your app
+## Integrating the framework
 
-- Drag and drop the `VPKit.framework` binary into your XCode project
-- Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
+Integrate manually or using cocoapods. In both cases, add App Transport Security settings to your info.plist file.
+
+###Manual integration
+
+The pre-compiled binary is available [on github](https://github.com/veepionyc/VPKitBinary)
+
+Unzip `VPKit.zip` and drag and drop the `VPKit.framework` binary into your XCode project
+
+Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
 
 ![](../assets/img/project-general.png)
+
+###Cocoapods integration
+
+Refer to [https://cocoapods.org/#getstarted](https://cocoapods.org/#getstarted) to get started with a Cocopods podfile.
+
+Add this line to your podfile
+
+`pod 'VPKit'`
+
+Run `pod install` from the commandline
+
+
+
+
+###Info.plist settings
 
 
 - Add the ```App Transport Security Settings``` key to your project's info.plist, with  sub-keys:
@@ -80,6 +99,14 @@ __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 	
 This will ensure the correct app permissions are set in order for the web view to appear. Apple have indicated that setting these to 'YES' will require justification when submitting to the app store - although this restriction has not been implemented yet.  
 
+## Downloading VPKit demo apps
+
+
+Demo apps are hosted on Github with pre-compiled binary VPKit Framework
+__[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
+
+Check the `AppDelegate` and `ViewController` files for detailed integration and usage notes.
+
 
 ## Usage
 
@@ -90,7 +117,7 @@ Firstly, you'll need to introduce your application to VEEPIO. The App Delegate i
 For testing purposes you can use the identifiers for the Veepio test app:
 
 ```swift
-//Swift
+//swift
 let appID = "VEEPIO_test_app_id"
 let clientID = "VsRIkxIfTtkFJhw1ABItnO50B6fSW23NhIRnST53"
 let clientSecret = "OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwjX179zHRXLUad5vrsOo5B7UtFq2utsrWbkjVus5aJKxW8wXTvDknqdgeowunL9yeEN8selNpTOJF"
@@ -109,13 +136,50 @@ NSString* clientSecret = @"OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwj
 	    
 [VPKit setApplicationId:appID
                clientId:clientID
-           clientSecret:clientSecret];
+           clientSecret:clientSecret];*------/
 ```
-	
+
+Other settings to consider at initialization:
+
+####Production status
+
+```swift  
+//swift  
+VPKit.setProduction(_:Bool)  
+```
+```objc  
+//objective-c
+[VPKit setProduction:(BOOL)]  
+```
+
+Production ON - your live production database: use for publishing  
+Production OFF - your sandbox database: use for development  
+
+####IDFA support - optional
+     
+(optional) send IDFA for Veep tracking
+     
+This requires host app linking to `AdSupport.framework` ("link binary with libarires" section of project Build Phases)
+     
+Setting this option to YES entails [additional reporting requirements when submitting to the app store](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html#//apple_ref/doc/uid/TP40011225-CH33-SW8)
+     
+     
+```swift  
+//swift  
+VPKit.sendIDFA(_:Bool)  
+```
+```objc  
+//objective-c
+[VPKit sendIDFA:(BOOL)]  
+```
+
+
+####UI styling - optional
+
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
 ```swift
-//Swift
+//swift
 VPKit.styles().margin = 12
 VPKit.styles().color.navBar = UIColor.init(white: 0.1, alpha: 1.0)
 VPKit.styles().font.navBarFont = UIFont .systemFont(ofSize: 18, weight: UIFontWeightHeavy);
