@@ -99,13 +99,33 @@ Run `pod install` from the commandline
 	
 This will ensure the correct app permissions are set in order for the web view to appear. Apple have indicated that setting these to 'YES' will require justification when submitting to the app store - although this restriction has not been implemented yet.  
 
-## Downloading VPKit demo apps
+## VPKit demo apps
 
 
 Demo apps are hosted on Github with pre-compiled binary VPKit Framework
 __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo)__
 
-Check the `AppDelegate` and `ViewController` files for detailed integration and usage notes.
+You will find detailed usage and integration notes in the App Delegate and ViewController files:
+
+### view veeps 
+
+objective-c  
+[AppDelegate.m](https://github.com/veepionyc/VPKitDemo/blob/master/demo_view_objc/VPKitDemo/AppDelegate.m)  
+[ViewController.m](https://github.com/veepionyc/VPKitDemo/blob/master/demo_view_objc/VPKitDemo/ViewController.m)  
+
+swift    
+[AppDelegate.swift](https://github.com/veepionyc/VPKitDemo/blob/master/demo_view_swift/VPKitDemoSwift/AppDelegate.swift)  
+[ViewController.swift](https://github.com/veepionyc/VPKitDemo/blob/master/demo_view_swift/VPKitDemoSwift/ViewController.swift)  
+
+### create veeps 
+
+objective-c  
+[AppDelegate.m](https://github.com/veepionyc/VPKitDemo/blob/master/demo_create_objc/VPKitDemo/AppDelegate.m)  
+[ViewController.m](https://github.com/veepionyc/VPKitDemo/blob/master/demo_create_objc/VPKitDemo/ViewController.m)  
+
+swift    
+[AppDelegate.swift](https://github.com/veepionyc/VPKitDemo/blob/master/demo_create_swift/VPKitDemoSwift/AppDelegate.swift)  
+[ViewController.swift](https://github.com/veepionyc/VPKitDemo/blob/master/demo_create_swift/VPKitDemoSwift/ViewController.swift)  
 
 
 ## Usage
@@ -303,15 +323,24 @@ VPKit.styles.color.navbar = [UIColor red]
 
 ## Reference
 
-#### VPKImage
+#### VPKImage : UIImage
 
-    @property (nonnull, nonatomic, strong, readonly) NSString* veepID;
+    @property (nonnull, nonatomic, strong, readonly) NSString* veepId;
 
     - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
-                                   veepID:(nonnull NSString*)veepID;
+                                   veepID:(nullable NSString*)veepId;
+                                   
+    - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
+                                   url:(nullable NSURL*)imageURL;
+                                   
+    /*
+    If VPKImage is initialised with null veepId or imageURL it will behave as a standard UIImage
+    /*
 
 
-#### VPKPublicVeep
+#### VPKPreview : UIImage
+
+#### VPKPublicVeep : NSObject
 
     @property (nonnull, nonatomic, strong) NSString* veepID;
     @property (nullable, nonatomic, strong) NSString* title;
@@ -322,7 +351,9 @@ VPKit.styles.color.navbar = [UIColor red]
 
 #### Initializing VPKit
 
-    + (void)setApplicationIdentifier:(nonnull NSString*)appID;
+    + (void)setApplicationId:(nonnull NSString*)appId
+                clientId:(nullable NSString*)clientId
+                  clientSecret:(nullable NSString*)secret;
 
 <!--#### User identification
 
@@ -331,12 +362,13 @@ VPKit.styles.color.navbar = [UIColor red]
 #### Consume Veep'd content
 
     + (nullable VPKVeepViewer*)viewerWithImage:(VPKImage*)image
-                                      fromView:(UIView*)view
+                                      fromView:(UIView*)fromView
+   
 
 #### Create Veep'd content
 
     + (nullable VPKVeepEditor*)editorWithImage:(UIImage*)image
-                                      fromView:(UIView*)view`
+                                      fromView:(UIView*)fromView`
 
 #### Fetch a VPKPublicVeep
 
