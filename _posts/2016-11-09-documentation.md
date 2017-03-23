@@ -57,7 +57,7 @@ The VEEP metadata can in turn be consumed using a `VPKPreview` object as mention
 
 Integrate manually or using cocoapods. In both cases, add App Transport Security settings to your info.plist file.
 
-###Manual integration
+### Manual integration
 
 The pre-compiled binary is available [on github](https://github.com/veepionyc/VPKitBinary)
 
@@ -67,7 +67,7 @@ Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks a
 
 ![](../assets/img/project-general.png)
 
-###Cocoapods integration
+### Cocoapods integration
 
 Refer to [https://cocoapods.org/#getstarted](https://cocoapods.org/#getstarted) to get started with a Cocopods podfile.
 
@@ -80,7 +80,7 @@ Run `pod install` from the commandline
 
 
 
-###Info.plist settings
+### Info.plist settings
 
 
 - Add the ```App Transport Security Settings``` key to your project's info.plist, with  sub-keys:
@@ -141,7 +141,7 @@ NSString* clientSecret = @"OdWbCaP9i1I2AV2yZUzwfDFE4gU04RDX1HdubnTEg8oWw8F9yWQwj
 
 Other settings to consider at initialization:
 
-####Production status
+#### Production status
 
 ```swift  
 //swift  
@@ -155,7 +155,7 @@ VPKit.setProduction(_:Bool)
 Production ON - your live production database: use for publishing  
 Production OFF - your sandbox database: use for development  
 
-####IDFA support - optional
+#### IDFA support - optional
      
 (optional) send IDFA for Veep tracking
      
@@ -174,7 +174,7 @@ VPKit.sendIDFA(_:Bool)
 ```
 
 
-####UI styling - optional
+#### UI styling - optional
 
 This is also a good place to add any custom fonts and colours to the veep viewer. Examples in the demo apps:
 
