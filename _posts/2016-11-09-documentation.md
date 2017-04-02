@@ -57,17 +57,30 @@ The VEEP metadata can in turn be consumed using a `VPKPreview` object as mention
 
 Integrate manually or using cocoapods. In both cases, add App Transport Security settings to your info.plist file.
 
+
 ### Manual integration
 
-The pre-compiled binary is available [on github](https://github.com/veepionyc/VPKitBinary)
+The pre-compiled binary with demo integrations is available [on github](http://www.github.com/veepionyc/VPKitDemo)
 
-Unzip `VPKit.zip` and drag and drop the `VPKit.framework` binary into your XCode project
+Drag and drop the `VPKit.framework` binary into your XCode project
 
 Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
 
 ![](../assets/img/project-general.png)
 
+
+`VPKit.framework` is a __univerrsal dynamic framework__ and will run in the simulator and on the device. Due to an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216), you must strip x86 (simulator) code before uploading to Apple. We provide two options to help with this exercise:
+
+- __Device-only binary__  
+The file `VPKit_framework_iphoneos.zip` is a device-only build of the framework. Replace the universal with this version before submitting to the app store.
+
+- __Build script__  
+[This script](https://github.com/realm/realm-cocoa/blob/master/scripts/strip-frameworks.sh) (Realm.io) will strip non-valid binaries when building. Add it to a "Run Script" build phase, which should be positioned _after_ the "Embed Frameworks" phase.
+
+
 ### Cocoapods integration
+
+Cocoapods manages builds of valid binaries for you so this is the preferred integration option.
 
 Refer to [https://cocoapods.org/#getstarted](https://cocoapods.org/#getstarted) to get started with a Cocopods podfile.
 
@@ -76,7 +89,6 @@ Add this line to your podfile
 `pod 'VPKit'`
 
 Run `pod install` from the commandline
-
 
 
 
