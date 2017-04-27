@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  [2.4.36]
+title:  [2.4.38]
 category: docs
 ---
 
@@ -72,8 +72,9 @@ Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks a
 - __Device-only binary__  
 The file `VPKit_framework_iphoneos.zip` is a device-only build of the framework. Replace the universal with this version before submitting to the app store.
 
-- __Build script__  
-[This script](https://github.com/realm/realm-cocoa/blob/master/scripts/strip-frameworks.sh) (Realm.io) will strip non-valid binaries when building. Add it to a "Run Script" build phase, which should be positioned _after_ the "Embed Frameworks" phase.
+- __Build script__   
+VPKit.framework includes a script to strip non-valid binaries when building. Run it from a "Run Script" build phase, which should be positioned _after_ the "Embed Frameworks" phase.  
+`bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/VPKit.framework/strip-frameworks.sh"`
 
 
 ### Cocoapods integration

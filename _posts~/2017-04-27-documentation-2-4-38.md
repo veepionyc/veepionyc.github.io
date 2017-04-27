@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  [2.4.36]
+title:  Documentation
 category: docs
 ---
+
+# VPKit Documentation
 
 VPKit is an iOS SDK for generating interactive media which provides a seamless transition from a social feed to an e-commerce experience.
 
