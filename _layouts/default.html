@@ -31,6 +31,89 @@
 <div id="white_space_top">
 </div>
 
+
+<div id="all_versions">
+            <h4>SDK Version</h4>
+
+            {% assign url_parts = page.url | split: '/' %}
+            {% assign url_parts_size = url_parts | size %}
+            {% assign rm = url_parts | last %}
+            {% assign index = 0 %}
+
+           <!--  <ul class="versioning">
+              {% for p in site.posts %}
+                    
+                    {% assign loopindex = forloop.index %}                    
+
+                    {% assign filename = node_url_parts | last %}
+                    {% assign node_url_parts = p.url | split: '/' %}
+                    {% assign node_url_parts_size = node_url_parts | size %}
+                    
+
+                    {% if node_url_parts == url_parts and filename != 'index.html' %}
+                      <li><a class="selected_version" href='{{p.url}}'>{{p.title}}</a></li>
+
+                    {% else %}
+                        {% if url_parts_size == 0 and loopindex == 1 %}
+                            <li><a class="selected_version" href='{{p.url}}'>{{p.title}}</a></li>
+                        {% else %}
+                            <li><a class="unselected_version" href='{{p.url}}'>{{p.title}}</a></li>
+                        {% endif %}
+
+                    {% endif %}
+
+              {% endfor %}
+
+
+
+
+            </ul>   -->
+
+            <script>
+            function gotourl(url){
+                console.log("THIS IS THE URL ", url);
+                window.location = url;
+            }
+
+            </script>
+
+            <select id="select_version" onchange="gotourl(this.value)">
+            
+<!--                 <option value="/">Current Version</option>
+ -->
+
+             {% for p in site.posts %}
+                    
+                    {% assign loopindex = forloop.index %}                    
+
+                    {% assign filename = node_url_parts | last %}
+                    {% assign node_url_parts = p.url | split: '/' %}
+                    {% assign node_url_parts_size = node_url_parts | size %}
+                    
+<!--                     <option value="{{ p.url }}">{{ p.title }}</option>
+ -->                 
+                    {% if node_url_parts == url_parts and filename != 'index.html' %}
+                    <option value="{{ p.url }}" selected>{{ p.title }}</option>
+
+                    {% else %}
+                        {% if url_parts_size == 0 and loopindex == 1 %}
+                            <option value="{{ p.url }}" selected>{{ p.title }}</option>
+                        {% else %}
+                            <option value="{{ p.url }}">{{ p.title }}</option>
+                        {% endif %}
+
+                    {% endif %} 
+
+              {% endfor %}
+              </select>
+
+
+
+
+
+
+            </div>
+
     <div class="page-content">
       <div class="container">
         <div class="three columns">
@@ -105,6 +188,9 @@
                 </g>
             </svg> -->
           </div>
+
+          
+
 
           <div class="wrapper">
             {{ content }}

@@ -559,3 +559,44 @@ header#main_header {
     cursor: pointer;
     font-family: 'robotolight', Helvetica;
 }
+
+  #select_version{
+    width: 85px;
+  }
+
+    #all_versions{
+      position: absolute;
+      left: 30px;
+      top: 100px;
+      width: 200px;
+      height: auto;
+      overflow: visible;
+      background: #fff;
+    }
+
+    #all_versions h4{
+      padding: 0;
+      margin: 0 0 5px 0;
+      display: block;
+    }
+
+    ul.versioning{
+      display: block;
+      list-style: none;
+      list-style-type: dashed;
+      list-style: dashed;
+      padding: 0;
+      margin: 0;
+
+    }
+
+    a.selected_version{
+      text-decoration: underline;
+      font-weight: bolder;
+      color: #000;
+      font-family: Helvetica;
+    }
+
+    a.unselected_version{
+      color: #afafaf;
+    }
