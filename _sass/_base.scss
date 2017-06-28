@@ -560,8 +560,12 @@ header#main_header {
     font-family: 'robotolight', Helvetica;
 }
 
-  #select_version{
+  .select_version{
     width: 85px;
+  }
+
+  #android_select, #ios_select{
+    // display: none;
   }
 
     #all_versions{
