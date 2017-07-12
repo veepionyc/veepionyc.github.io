@@ -40,24 +40,41 @@ Under development. Veep Create functions are only available on iOS at this time.
 
 
 
-## Integrating the framework
+## Integrating the framework using Gradle
 
-Integrate using Gradle. 
+### Project Gradle file
 
-Add this line to your app's Gradle file
+Enable jCenter in the `allprojects` section of the project Gradle file
 
-`compile ‘io.veep.android:vpkit_library:1.2.+’`
+    allprojects {
+	    repositories {
+	        jcenter()
+    }
 
 
-Add Internet permissions to your app's Manifset.xml file
 
-     <uses-permission android:name="android.permission.INTERNET" />     
+### App Gradle file
+
+Add the vpkit_library to the `dependencies` section of the app Gradle file
+
+    dependencies {  
+        compile ‘io.veep.android:vpkit_library:1.2.+’
+    }
+
+### App Manifest file
+
+Add Internet permissions to the top level `<manifest>` section of the app manifest file
+
+    <manifest ...>  
+         <uses-permission android:name="android.permission.INTERNET" />  
+         
+     </manifest   
 
 
 ## VPKit demo apps
 
 
-Demo apps are hosted on Github
+Demo apps are hosted on Github  
 __[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo_Android)__
 
 You will find detailed usage and integration notes in the [VPKDemoActivity file](https://github.com/veepionyc/VPKitDemo_Android/blob/master/VPKitDemo/vpkit_demo_view/src/main/java/io/veep/android/vpkitdemo/VPKitDemoActivity.java):
@@ -73,13 +90,14 @@ Firstly, you'll need to introduce your application to VEEPIO. The first Activity
 For testing purposes you can use the identifiers for the Veepio test app:
 
 ```     
-        \\java
+        //java
         String appId = "VEEPIO_by_url_test_app_id";
         String clientId = "1zArpBErovQ1MjVHvigJqXwE8qt47U2Yy5XzG3CP";
         String clientSecret = "VpLIvEetceUnHBEIf6fLUwLxELBh2QesZ6iLLiPHCesRLXfOLLJNcFfmp03wJfGaJquO3V8KqHjtvzlufuXfWWgcpWVw9wxfBJNYdZh96JHV5hk44dJbqiCqplrKcSml";
         VPKitApplication.setAppId(appId, clientId, clientSecret);
 ```
 
+The credentials must be set before initialising an instance of `VPKPreview`
 
 
 ### Viewing
@@ -87,19 +105,66 @@ For testing purposes you can use the identifiers for the Veepio test app:
 #### VPKPreview
 
 The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your UI.  
-- `VPKPreview` can be used in place of an ImageView, wherever you might display images with optional veep metadata.  
-- It is initialized with an `imageUrl` or `veepId` string, along with the `Drawable` image.  
-- It provides an animated VEEP icon to indicate that an image is interactive. The VEEP icon is only displayed if the image is initialised with a veepId, or with a URL that is associated with a veepId. Otherwise it behaves as an GroupView with contained ImageView.
+
+- `VPKPreview` can be used in place of an ImageView, wherever you might display images with optional veep metadata. 
+
+- Create a layout file with a VPKPreview. Follow a similar format to that of an ImageView, but change the type
 
 
-```
-        \\java
-        VPKPreview preview = (VPKPreview)findViewById(R.id.vpk_preview2);
+        //xml
+        
+         //if this is your ImageView layout ...
+         
+         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:id="@+id/image_id_1"
+            />
+        
+        //change the type to VPKPreview ...
+        
+         <io.veep.android.vpkit_library.CustomViews.VPKPreview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:id="@+id/image_id_1"
+            />
+            
+ 
+- In the associated Activity or Fragment, the VPKPreview is initialized with an `imageUrl` or `veepId` string, along with the `Drawable` image.  
+
+   
+If you are accessing and using an ImageView thus:
+        
+        //java
+
+         ImageView imageView = (ImageView) findViewById(R.id.image_id_1);
+         imageView.setImageDrawable(getResources().getDrawable(R.drawable.viewwithurl)); 
+         
+You would use a replacement VPKPreview in this way:
+
+        //java
+        
+        VPKPreview preview = (VPKPreview)findViewById(R.id.image_id_1);
         String veepId= "1787";  
         preview.setVeepId(veepId);
         preview.mImageView.setImageDrawable([drawableImage]);
+        
+Or, using a URL instead of a veepId:
+
+        VPKPreview preview = (VPKPreview)findViewById(R.id.image_id_1);
+        String imageUrl= <ImageUrl>;  
+        preview.setVImageUrl(imageUrl);
+        preview.mImageView.setImageDrawable([drawableImage]);
               
-```
+
+- If an image is shown which has veep metadata a VEEP icon is displayed. The VEEP icon is only displayed if the image is initialised with a veepId, or with a URL that is associated with a veepId. Otherwise it behaves as a regular GroupView with contained ImageView.
+
+- A veep-enabled VPKPreview will launch the Veep Viewer in response to a user touch event.
+
 
 NB - setting the drawable content on VPKPreviews's imageView should happen _after_ setting the veepId or imageUrl - otherwise the object may not recognise it's image as containing veep'd content.
 
