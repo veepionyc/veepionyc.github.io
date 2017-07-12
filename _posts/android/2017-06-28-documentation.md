@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  VPKit_library Documentation (Android)
-version: 1.2.1
+version: 1.2.+
 category: android
 ---
 
@@ -19,7 +19,7 @@ For installation help and more information: __sdk_support@veepio.com__ or use th
 
 ## A little more about the SDK
 
-VPKit_library is supplied as a pre-compiled library ready for Gradle integration into your Android project. A demo app is provided  showing how to incorporate and use the SDK.
+VPKit_library is supplied as a pre-compiled library ready for Gradle integration into your Android project. A [demo app](https://github.com/veepionyc/VPKitDemo_Android) is provided  showing how to incorporate and use the SDK.
 
 ### Viewing a VEEP image
 ![](../assets/img/consume.jpg)
@@ -44,15 +44,14 @@ Under development. Veep Create functions are only available on iOS at this time.
 
 Integrate using Gradle. 
 
+Add this line to your app's Gradle file
+
+`compile ‘io.veep.android:vpkit_library:1.2.+’`
+
+
 Add Internet permissions to your app's Manifset.xml file
 
      <uses-permission android:name="android.permission.INTERNET" />     
-
-
-Add this line to your app's Gradle file
-
-`compile ‘io.veep.android:vpkit_library:0.0.1’`
-
 
 
 ## VPKit demo apps
