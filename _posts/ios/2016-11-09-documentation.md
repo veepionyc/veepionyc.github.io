@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  IOS - VPKit Documentation
+title:  VPKit Documentation (iOS)
 version: 2.4.36
 category: ios
 ---
