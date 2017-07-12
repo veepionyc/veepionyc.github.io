@@ -98,11 +98,8 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
         VPKPreview preview = (VPKPreview)findViewById(R.id.vpk_preview2);
         String veepId= "1787";  
         preview.setVeepId(veepId);
-        preview.mImageView.setImageDrawable(
-              \\drawable source for ImageView
-              );
+        preview.mImageView.setImageDrawable([drawableImage]);
               
-        \\adjust layoutparame or xml sizing as appropriate
 ```
 
 NB - setting the drawable content on VPKPreviews's imageView should happen _after_ setting the veepId or imageUrl - otherwise the object may not recognise it's image as containing veep'd content.
