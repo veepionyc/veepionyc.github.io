@@ -117,7 +117,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 
 - `VPKPreview` can be used in place of an ImageView, wherever you might display images with optional veep metadata. 
 
-- Create a layout file with a VPKPreview. Follow a similar format to that of an ImageView, but change the type
+- Create a layout file with a VPKPreview. Follow a similar format to that of an ImageView, but change the view type.
 
 
         //xml
@@ -132,7 +132,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
             android:id="@+id/image_id_1"
             />
         
-        //change the type to VPKPreview ...
+        //change the type from ImageView to VPKPreview ...
         
          <io.veep.android.vpkit_library.CustomViews.VPKPreview
            ...
