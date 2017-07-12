@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  VPKit_library Documentation (Android)
+title:  VPKit Documentation (Android)
 version: 1.2.+
 category: android
 ---
