@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  VPKit Documentation (Android)
-version: 1.2.14
+version: 1.2.15
 category: android
 ---
 
@@ -13,13 +13,13 @@ A VEEP is a metadata object defining the transition from an image or video in a 
 
 The SDK is hosted on JCenter and MavenCentraL for installation using Gradle.
 
-For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https://github.com/veepionyc/VPKitDemo_Android/issues)__
+For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https:\\github.com/veepionyc/VPKitDemo_Android/issues)__
 
 
 
 ## A little more about the SDK
 
-VPKit_library is supplied as a pre-compiled library ready for Gradle integration into your Android project. A [demo app](https://github.com/veepionyc/VPKitDemo_Android) is provided  showing how to incorporate and use the SDK.
+VPKit_library is supplied as a pre-compiled library ready for Gradle integration into your Android project. A [demo app](https:\\github.com/veepionyc/VPKitDemo_Android) is provided  showing how to incorporate and use the SDK.
 
 ### Viewing a VEEP image
 ![](../assets/img/consume.jpg)
@@ -80,9 +80,9 @@ Add Internet permissions to the top level `<manifest>` section of the app manife
 
 
 Demo apps are hosted on Github  
-__[github.com/veepionyc/VPKitDemo](http://www.github.com/veepionyc/VPKitDemo_Android)__
+__[github.com/veepionyc/VPKitDemo](http:\\www.github.com/veepionyc/VPKitDemo_Android)__
 
-You will find detailed usage and integration notes in the [VPKDemoActivity file](https://github.com/veepionyc/VPKitDemo_Android/blob/master/VPKitDemo/vpkit_demo_view/src/main/java/io/veep/android/vpkitdemo/VPKitDemoActivity.java):
+You will find detailed usage and integration notes in the [VPKDemoActivity file](https:\\github.com/veepionyc/VPKitDemo_Android/blob/master/VPKitDemo/vpkit_demo_view/src/main/java/io/veep/android/vpkitdemo/VPKitDemoActivity.java):
 
 
 
@@ -93,17 +93,26 @@ You will find detailed usage and integration notes in the [VPKDemoActivity file]
     import io.veep.android.vpkit_library.VPKitApplication;
 
 
-Firstly, you'll need to introduce your application to VEEPIO. The first Activity of your app is a good location for this. A triplet of unique strings identify your app to the Veepio SDK: appID, clientID and clientSecret. To obtain these identifiers, visit the [Veepio Developer Portal](https://developer.veep.io), register an account and create an app. 
+Firstly, you'll need to introduce your application to VEEPIO. The first Activity of your app is a good location for this. A triplet of unique strings identify your app to the Veepio SDK: appID, clientID and clientSecret. To obtain these identifiers, visit the [Veepio Developer Portal](https:\\developer.veep.io), register an account and create an app. 
 
 For testing purposes you can use the identifiers for the Veepio test app:
 
 ```     
-        //java
+        \\java
+        
         String appId = "VEEPIO_by_url_test_app_id";
         String clientId = "1zArpBErovQ1MjVHvigJqXwE8qt47U2Yy5XzG3CP";
         String clientSecret = "VpLIvEetceUnHBEIf6fLUwLxELBh2QesZ6iLLiPHCesRLXfOLLJNcFfmp03wJfGaJquO3V8KqHjtvzlufuXfWWgcpWVw9wxfBJNYdZh96JHV5hk44dJbqiCqplrKcSml";
         VPKitApplication.setAppId(appId, clientId, clientSecret);
 ```
+
+In some cases you may need to pass a Context instance in via the initialiser (this will be determined by your host app setup):
+
+
+        Context context = getApplicationContext()  // this may vary 
+                                                   // depending on your 
+                                                   // app configuration
+        VPKitApplication.setAppId(context, appId, clientId, clientSecret);
 
 The credentials must be set before initialising an instance of `VPKPreview`
 
@@ -120,9 +129,9 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
 - Create a layout file with a VPKPreview. Follow a similar format to that of an ImageView, but change the view type.
 
 
-        //xml
+        \\xml
         
-         //if this is your ImageView layout ...
+         \\if this is your ImageView layout ...
          
          <ImageView
             android:layout_width="wrap_content"
@@ -132,7 +141,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
             android:id="@+id/image_id_1"
             />
         
-        //change the type from ImageView to VPKPreview ...
+        \\change the type from ImageView to VPKPreview ...
         
          <io.veep.android.vpkit_library.CustomViews.VPKPreview
            ...
@@ -149,7 +158,7 @@ the VPKPreview is initialized with an `imageUrl` or `veepId` string, along with 
    
 If you are accessing and using an ImageView thus:
         
-        //java
+        \\java
         
          Drawable image =  getResources().getDrawable(R.drawable.viewwithurl);
          ImageView imageView = (ImageView) findViewById(R.id.image_id_1);
@@ -157,7 +166,7 @@ If you are accessing and using an ImageView thus:
          
 You would use a replacement VPKPreview in this way:
 
-        //java
+        \\java
         
         VPKPreview preview = (VPKPreview)findViewById(R.id.image_id_1);
         String veepId= "1787";  
@@ -183,16 +192,16 @@ NB - setting the drawable content on VPKPreviews's imageView should happen _afte
 
 ### Creating veep content
 
-For Veep content creation, please refer to the [iOS documentation](https://veepionyc.github.io)
+For Veep content creation, please refer to the [iOS documentation](https:\\veepionyc.github.io)
  
  
 
 ## Support
 
-Veepio Developer Portal - [developer.veep.io](https://developer.veep.io)  
+Veepio Developer Portal - [developer.veep.io](https:\\developer.veep.io)  
 
 For installation help and more information: __sdk_support@veepio.com__   
-or use the __[VPKitDemo_Android issue tracker](https://github.com/veepionyc/VPKitDemo_Android/issues)__
+or use the __[VPKitDemo_Android issue tracker](https:\\github.com/veepionyc/VPKitDemo_Android/issues)__
 
 
 
