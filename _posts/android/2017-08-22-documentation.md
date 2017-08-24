@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  VPKit Documentation (Android)
-version: 1.2.+ (>= 15)
+version: 1.2.15+
 category: android
 ---
 
