@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  VPKit Documentation (Android)
-version: 1.2.15
+version: 1.2.+ (>= 15)
 category: android
 ---
 
@@ -134,7 +134,7 @@ The easiest way to use the VEEPIO functionality is to use a `VPKPreview` in your
          \\if this is your ImageView layout ...
          
          <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
