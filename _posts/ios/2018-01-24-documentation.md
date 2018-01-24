@@ -388,6 +388,10 @@ VPKit.styles().color.navbar = UIColor.red()
 VPKit.styles.color.navbar = [UIColor red]
 ```
 
+##Event notifications
+A number of event messages are available to intercept as `NSNotification` objects. For details refer to:
+
+[VPKPublicEventConstants](https://github.com/veepionyc/VPKitDemo/blob/2.6.0/VPKit.framework/Headers/VPKPublicEventConstants.h)  
 
 ## Reference
 
