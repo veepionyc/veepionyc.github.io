@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  VPKit Documentation (iOS)
-version: 2.4.49+
+version: 2.4.49
 category: ios
 ---
 
