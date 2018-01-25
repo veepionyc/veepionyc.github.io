@@ -401,7 +401,7 @@ The notification objects include a `userInfo` dictionary with a single `VPKIdent
 
     @property (nonatomic, strong, nullable) NSString *mediaIdentifier
     
-`mediaIdentifier` is a courtesy property that the host app can use for tracking purposes (see [Event Notifications](#event-notifications)).
+`mediaIdentifier` is a courtesy property that the host app can use for tracking purposes (see [Event Notifications](./documentation#event-notifications)).
 
     @property (nonnull, nonatomic, strong, readonly) NSString* veepId;
 
