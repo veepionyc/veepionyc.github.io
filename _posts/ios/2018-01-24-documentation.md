@@ -393,9 +393,15 @@ A number of event messages are available to intercept as `NSNotification` object
 
 [VPKPublicEventConstants](https://github.com/veepionyc/VPKitDemo/blob/2.6.0/VPKit.framework/Headers/VPKPublicEventConstants.h)  
 
+The notification objects include a `userInfo` dictionary with a single `VPKIdentifierKey` entry. If a [`mediaIdentifier`](#vpkimage--uiimage) string is set on the `VPKPreview's` [`VPKImage`](#vpkimage--uiimage), this will be returned as the value. The identifier may aid in ensuring that the correct media events are handled.
+
 ## Reference
 
 #### VPKImage : UIImage
+
+    @property (nonatomic, strong, nullable) NSString *mediaIdentifier
+    
+`mediaIdentifier` is a courtesy property that the host app can use for tracking purposes (see [Event Notifications](#event-notifications)).
 
     @property (nonnull, nonatomic, strong, readonly) NSString* veepId;
 
@@ -405,9 +411,9 @@ A number of event messages are available to intercept as `NSNotification` object
     - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
                                    url:(nullable NSURL*)imageURL;
                                    
-    /*
-    If VPKImage is initialised with null veepId or imageURL it will behave as a standard UIImage
-    /*
+
+If `VPKImage` is initialised with null veepId or imageURL it will behave as a standard UIImage
+
 
 
 #### VPKPreview : UIImage
