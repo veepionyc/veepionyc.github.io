@@ -15,6 +15,8 @@ The SDK can be __[downloaded from our Github repository](http://www.github.com/v
 
 For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https://github.com/veepionyc/VPKitDemo/issues)__
 
+A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2.6.0/index.html)  
+
 
 
 ## A little more about the SDK
@@ -398,84 +400,6 @@ The notification objects include a `userInfo` dictionary with a single `VPKIdent
 ## Reference
 
 A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2.6.0/index.html)
-
-#### VPKImage : UIImage
-
-    @property (nonatomic, strong, nullable) NSString *mediaIdentifier
-    
-`mediaIdentifier` is a courtesy property that the host app can use for tracking purposes (see [Event Notifications](./documentation#event-notifications)).
-
-    @property (nonnull, nonatomic, strong, readonly) NSString* veepId;
-
-    - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
-                                   veepID:(nullable NSString*)veepId;
-                                   
-    - (nonnull instancetype)initWithImage:(nonnull UIImage*)image
-                                   url:(nullable NSURL*)imageURL;
-                                   
-
-If `VPKImage` is initialised with null veepId or imageURL it will behave as a standard UIImage
-
-
-
-#### VPKPreview : UIImage
-
-#### VPKPublicVeep : NSObject
-
-    @property (nonnull, nonatomic, strong) NSString* veepID;
-    @property (nullable, nonatomic, strong) NSString* title;
-    @property (nullable, nonatomic, strong) NSString* descriptionString;
-    @property (nullable, nonatomic, strong) NSURL* originalContentURI;
-
-## VPKitClass methods
-
-#### Initializing VPKit
-
-    + (void)setApplicationId:(nonnull NSString*)appId
-                clientId:(nullable NSString*)clientId
-                  clientSecret:(nullable NSString*)secret;
-
-<!--#### User identification
-
-    + (void)setEmail:(nullable NSString*)email;-->
-
-#### Consume Veep'd content
-
-    + (nullable VPKVeepViewer*)viewerWithImage:(VPKImage*)image
-                                      fromView:(UIView*)fromView
-   
-
-#### Create Veep'd content
-
-    + (nullable VPKVeepEditor*)editorWithImage:(UIImage*)image
-                                      fromView:(UIView*)fromView`
-
-#### Fetch a VPKPublicVeep
-
-    + (void) requestVeep:(NSString*)veepID
-        completionBlock:^(VPKPublicVeep* _Nullable veep,
-                          NSError* _Nullable error) completion;
-
-## Controlling appearance
-
-#### VPKStyles
-
-    @property (nonatomic, assign) CGFloat lineWidth;
-    @property (nonatomic, assign) CGFloat margin;
-
-#### VPKFontStyles
-
-	@property (nonatomic, strong) UIFont* barButtonItemFontDisabled;
-	@property (nonatomic, strong) UIFont* barButtonItemFontEnabled;
-	@property (nonatomic, strong) UIFont* barButtonItemFont;
-	@property (nonatomic, strong) UIFont* navBarFont;
-	@property (nonatomic, strong) UIFont* cellNavBarFont;
-	@property (nonatomic, strong) UIFont* cellLabelFont;
-	@property (nonatomic, strong) UIFont* cellTextViewFont;
-	@property (nonatomic, strong) UIFont* bigLabelFont;
-
-
-
 
 
 ## Support

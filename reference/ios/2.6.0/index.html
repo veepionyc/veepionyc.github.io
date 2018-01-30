@@ -210,39 +210,9 @@
           <div class='section-content'>
             
             <h1 id='vpkit-sdk-reference' class='heading'>VPKit SDK Reference</h1>
-<h3 id='basic-usage' class='heading'>Basic usage</h3>
+<h2 id='public-interface' class='heading'>Public Interface</h2>
 
-<p><a href="Classes/VPKit.html">VPKit</a> provides the public interface for the framework. This is where you will find methods to initialise the SDK.</p>
-
-<p>You will also need to initialise a <code><a href="Classes/VPKPreview.html">VPKPreview</a></code> (UIImageView sublcass) with a <code><a href="Classes/VPKImage.html">VPKImage</a></code> (UIImage sublcass). <code><a href="Classes/VPKPreview.html">VPKPreview</a></code> has two delegates that may be set to adjust behaviour.</p>
-
-<p><code><a href="Classes/VPKVeepViewer.html">VPKVeepViewer</a></code> and <code><a href="Classes/VPKVeepEditor.html">VPKVeepEditor</a></code> are the view controllers for viewing and creating veeps. There is no need to invoke these objects explicitly - the VPKPreview can handle simple use cases internally.  </p>
-
-<p><code><a href="Classes/VPKit.html">VPKit</a></code><br>
-<code><a href="Classes/VPKPreview.html">VPKPreview</a></code><br>
-<code><a href="Protocols/VPKPreviewDelegate.html">VPKPreviewDelegate</a></code><br>
-<code>VPKPassthroughDelegate</code><br>
-<code><a href="Classes/VPKImage.html">VPKImage</a></code><br>
-<code><a href="Classes/VPKVeepViewer.html">VPKVeepViewer</a></code><br>
-<code><a href="Classes/VPKVeepEditor.html">VPKVeepEditor</a></code>  </p>
-
-<p>For simple usage examples refer to the included <a href="https://github.com/veepionyc/VPKitDemo">demo apps</a>.</p>
-<h3 id='controlling-appearance' class='heading'>Controlling appearance</h3>
-
-<p>The VPKStyle classes provide some scope for cusomising the appearance of the Veep Viewer</p>
-
-<p><code><a href="Classes/VPKStyles.html">VPKStyles</a></code><br>
-<code><a href="Classes/VPKFontStyles.html">VPKFontStyles</a></code><br>
-<code><a href="Classes/VPKColorStyles.html">VPKColorStyles</a></code>  </p>
-<h3 id='event-notifications' class='heading'>Event notifications</h3>
-
-<p>A number of event messages are available to intercept as NSNotification objects. </p>
-
-<p>See <code>VPKEvent</code> constants for a <a href="Constants.html">list of event names</a>.</p>
-
-<p>The notification objects include a userInfo dictionary with a single VPKIdentifierKey entry. If a mediaIdentifier string is set on the VPKPreview&rsquo;s VPKImage, this will be returned as the value. The identifier may aid in ensuring that the correct media events are handled.</p>
-
-<p>See <code><a href="Classes/VPKImage.html#/c:objc(cs)VPKImage(py)mediaIdentifier">VPKImage.mediaIdentifier</a></code></p>
+<p><a href="Classes/VPKit.html">VPKit</a> provides the public interface for the framework</p>
 <h2 id='tutorial' class='heading'>Tutorial</h2>
 
 <p><a href="https://veepionyc.github.io">veepionyc.github.io</a>   </p>
