@@ -397,6 +397,8 @@ The notification objects include a `userInfo` dictionary with a single `VPKIdent
 
 ## Reference
 
+A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2.6.0/index.html)
+
 #### VPKImage : UIImage
 
     @property (nonatomic, strong, nullable) NSString *mediaIdentifier
@@ -473,15 +475,7 @@ If `VPKImage` is initialised with null veepId or imageURL it will behave as a st
 	@property (nonatomic, strong) UIFont* bigLabelFont;
 
 
-#### VPKColorStyles
 
-	@property (nonatomic, strong) UIColor* navBar;
-	@property (nonatomic, strong) UIColor* navBarText;
-
-	@property (nonatomic, strong) UIColor* navBarLight;
-	@property (nonatomic, strong) UIColor* navBarDark;
-	@property (nonatomic, strong) UIColor* cellNavBar;
-	@property (nonatomic, strong) UIColor* cellMidGrey;
 
 
 ## Support
