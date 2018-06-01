@@ -15,7 +15,7 @@ The SDK can be __[downloaded from our Github repository](http://www.github.com/v
 
 For installation help and more information: __sdk_support@veepio.com__ or use the __[VPKitDemo issue tracker](https://github.com/veepionyc/VPKitDemo/issues)__
 
-A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2.6.0/index.html)  
+A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2/6/)
 
 
 
@@ -399,7 +399,7 @@ The notification objects include a `userInfo` dictionary with a single `VPKIdent
 
 ## Reference
 
-A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2.6.0/index.html)
+A complete class reference is avaialble [here](https://veepionyc.github.io/reference/ios/2/6/)
 
 
 ## Support
