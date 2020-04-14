@@ -65,9 +65,21 @@ The pre-compiled binary with demo integrations is available [on github](http://w
 
 Drag and drop the `VPKit.framework` binary into your XCode project
 
-Ensure the framework is included in "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
+**General Tab - XCode 10**  
+Ensure the framework is included in _both_ "Embedded Binaries" and "Linked Frameworks and Libraries" in the general tab of your target settings.
 
 ![](../assets/img/project-general.png)
+
+**General Tab - XCode 11+**  
+Ensure the framework is included in "Frameworks, Libraries and Embedded Content" and "Embed Frameworks"  in the general tab of your target settings.
+
+![](../assets/img/xc11-project-general.png)
+
+**Build Phases Tab**
+
+Ensure the framework appears in both "Link Binary with Libraries" and "Embed Frameworks" sections. This should be correct if you have added the framework correctly in the General Tab
+
+![](../assets/img/xc11-build-phases.png)
 
 
 `VPKit.framework` is a __univerrsal static framework__ and will run in the simulator and on the device. Due to an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216), you must strip x86 (simulator) code before uploading to Apple. We provide two options to help with this exercise:
