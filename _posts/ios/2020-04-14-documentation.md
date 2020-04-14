@@ -71,13 +71,13 @@ Ensure the framework is included in _both_ "Embedded Binaries" and "Linked Frame
 ![](../assets/img/project-general.png)
 
 **General Tab - XCode 11+**  
-Ensure the framework is included in "Frameworks, Libraries and Embedded Content" and "Embed Frameworks"  in the general tab of your target settings.
+Ensure the framework is included in "Frameworks, Libraries and Embedded Content" in the general tab of your target settings. Select `embed without signing`.	
 
 ![](../assets/img/xc11-project-general.png)
 
 **Build Phases Tab**
 
-Ensure the framework appears in both "Link Binary with Libraries" and "Embed Frameworks" sections. This should be correct if you have added the framework correctly in the General Tab
+Ensure the framework appears in both "Link Binary with Libraries" and "Embed Frameworks" sections. This should be correct if you have added the framework correctly in the General Tab. The `signing` box can be unchecked.
 
 ![](../assets/img/xc11-build-phases.png)
 
