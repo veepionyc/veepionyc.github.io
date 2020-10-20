@@ -306,6 +306,10 @@ Sent if the user taps on veep content, and the VPKPreview will launch a `VeepVie
 The VPKPreview also exposes a `UITouchGestureRecognizer` as a read-only property for more fine-grained control
 
 
+#### VPKPreviewDelegate (deprecated)
+
+If the `delegate` property is set on `VPKPreview` the host app is responsible for presenting and dismissing the `VeepViewer`. This is not recommended and the property is deprecated. See earlier versions of this tutorial for more information.
+
 
 ### Creating veep content
 
