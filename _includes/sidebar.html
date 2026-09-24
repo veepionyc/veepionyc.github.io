@@ -1,0 +1,83 @@
+<aside class="side" id="all_versions" aria-label="Platform and SDK version">
+
+  <div class="side__group">
+    <h4 class="vp-eyebrow side__label">Platform</h4>
+    <div class="seg" role="group" aria-label="Platform">
+      {% for cat in site.categories %}
+        <button type="button" class="seg__btn" id="btn_{{ cat[0] }}" onclick="loadPlatform('{{ cat[0] }}')">{{ cat[0] | replace: 'ios', 'iOS' | replace: 'android', 'Android' }}</button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="side__group">
+    <h4 class="vp-eyebrow side__label">SDK Version</h4>
+
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign url_parts_size = url_parts | size %}
+
+    <div class="vp-select">
+      <select id="ios_select" class="select_version" aria-label="iOS SDK version" onchange="gotourl(this.value)">
+      {% for p in site.categories.ios %}
+        {% assign loopindex = forloop.index %}
+        {% assign node_url_parts = p.url | split: '/' %}
+        {% assign filename = node_url_parts | last %}
+        {% if node_url_parts == url_parts and filename != 'index.html' %}
+          <option value="{{ p.url }}" selected>{{ p.version }}</option>
+        {% else %}
+          {% if url_parts_size == 0 and loopindex == 1 %}
+            <option value="{{ p.url }}" selected>{{ p.version }}</option>
+          {% else %}
+            <option value="{{ p.url }}">{{ p.version }}</option>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </select>
+
+      <select id="android_select" class="select_version" aria-label="Android SDK version" onchange="gotourl(this.value)" hidden>
+      {% for p in site.categories.android %}
+        {% assign loopindex = forloop.index %}
+        {% assign node_url_parts = p.url | split: '/' %}
+        {% assign filename = node_url_parts | last %}
+        {% if node_url_parts == url_parts and filename != 'index.html' %}
+          <option value="{{ p.url }}" selected>{{ p.version }}</option>
+        {% else %}
+          {% if url_parts_size == 0 and loopindex == 1 %}
+            <option value="{{ p.url }}" selected>{{ p.version }}</option>
+          {% else %}
+            <option value="{{ p.url }}">{{ p.version }}</option>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="side__group side__group--link">
+    <h4 class="vp-eyebrow side__label">Changelog</h4>
+    <a href="/whats-changed/" class="side__link">What's Changed?</a>
+  </div>
+
+  <script>
+    function gotourl(url) {
+      window.location = url;
+    }
+
+    function loadPlatform(plat, forward) {
+      if (forward === undefined) { forward = true; }
+      var ios = document.getElementById('ios_select');
+      var android = document.getElementById('android_select');
+      var btnIos = document.getElementById('btn_ios');
+      var btnAndroid = document.getElementById('btn_android');
+      var isIos = (plat === 'ios');
+
+      ios.hidden = !isIos;
+      android.hidden = isIos;
+      if (btnIos) { btnIos.classList.toggle('is-active', isIos); btnIos.setAttribute('aria-pressed', isIos); }
+      if (btnAndroid) { btnAndroid.classList.toggle('is-active', !isIos); btnAndroid.setAttribute('aria-pressed', !isIos); }
+
+      if (forward === true) {
+        window.location = (isIos ? ios : android)[0].value;
+      }
+    }
+  </script>
+</aside>

@@ -1,32 +1,26 @@
-<footer class="site-footer">
-  <div class="container">
-   <!--  <div class="footer left column one-half">
-      <section class="small-font">
-        Theme <a href="https://github.com/wild-flame/jekyll-simple"> Simple </a> by <a href="http://wildflame.me">wildflame</a>
-        © 2016 
-        Powered by <a href="https://github.com/jekyll/jekyll">jekyll</a>
-      </section>
-    </div>
+<footer class="footer site-footer">
+  <div class="footer__inner">
+    <span class="footer__brand">
+      {% include mark.svg class="footer__mark" %}
+      VEEPIO
+    </span>
 
-    <div class="footer right column one-half">
-      <section class="small-font">
-        {% if site.github_username %}
-        {% include icon-github.html username=site.github_username %}
-        {% endif %}
-        {% if site.twitter_username %}
-        {% include icon-twitter.html username=site.twitter_username %}
-        {% endif %}
-      </section>
-    </div> -->
+    <nav class="footer__links" aria-label="Footer">
+      <a href="https://veep.io" target="_blank" rel="noopener">veep.io</a>
+      <a href="https://developer.veep.io" target="_blank" rel="noopener">Developer Portal</a>
+      <a href="https://github.com/veepionyc/VPKitDemo" target="_blank" rel="noopener">GitHub · VPKitDemo</a>
+      <a href="/reference/ios/">Class Reference</a>
+    </nav>
+
+    <span class="footer__legal">© {{ site.time | date: "%Y" }} VEEPIO Holdings LLC · New York</span>
   </div>
+
   <script>
   (function () {
-  'use strict';
-
-  anchors.options.placement = 'left';
-
-  anchors.add();
-})();
+    'use strict';
+    if (typeof anchors === 'undefined') { return; }
+    anchors.options.placement = 'right';
+    anchors.add('.article__body h2, .article__body h3, .article__body h4');
+  })();
   </script>
-
 </footer>

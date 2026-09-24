@@ -1,368 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   {% include head.html %}
   <body>
 
-  <header id="main_header">
+    {% include nav.html %}
 
+    <div class="docs">
+      {% include sidebar.html %}
 
-    <svg id="vpo_logo" width="31px" height="30px" viewBox="39 13 31 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <desc>VEEPIO LOGO</desc>
-        <defs></defs>
-        <g id="App-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(39.000000, 13.000000)">
-            <path d="M21.9721332,17.5478022 L21.9721332,17.5478022 C21.639039,17.2620654 21.2140269,17.1047363 20.7743056,17.1043956 C20.7218661,17.1043956 20.6694266,17.1043956 20.6169872,17.110989 C20.1247464,17.1506401 19.669577,17.3868875 19.3551282,17.7659341 L12.9409544,26.256044 C12.3050456,27.0267688 12.4014849,28.1614089 13.1584402,28.8148352 C13.5329552,29.1352925 14.0211217,29.2925222 14.5132432,29.2511931 C15.0053646,29.2098639 15.4601649,28.9734424 15.7754452,28.5950549 L22.1896189,20.1049451 C22.8244368,19.3344802 22.7280402,18.2010731 21.9721332,17.5478022 Z" id="Shape" fill="#7A7A7A"></path>
-            <path d="M26.256161,24.1324176 C26.8925352,23.3617356 26.7958099,22.226611 26.0381232,21.5736264 L26.0287393,21.5648352 C25.6980855,21.2829251 25.2767632,21.1285088 24.8413996,21.1296703 C24.7889601,21.1296703 24.7370726,21.1296703 24.6846332,21.1362637 C24.1925804,21.175698 23.7374606,21.4115234 23.4227742,21.7901099 L20.3796296,26.256044 C19.7439315,27.0274426 19.8418874,28.1626388 20.6004274,28.8148352 C20.9743709,29.1352976 21.461937,29.2928615 21.9536796,29.2521579 C22.4454223,29.2114543 22.9001458,28.9758931 23.2157764,28.5983516 L26.256161,24.1324176 Z" id="Shape" fill="#7A7A7A"></path>
-            <path d="M29.1292913,7.53626374 C29.1086742,7.11984017 29.0516025,6.7060005 28.9587251,6.29945055 C28.135024,2.69291752 24.6796052,0.310481557 20.9980725,0.810754008 C17.3165397,1.31102646 14.6290965,4.52819751 14.8066952,8.22252747 C14.8709115,9.52105509 15.2885777,10.7777755 16.0150107,11.8582418 L16.077938,11.9510989 L16.0597222,11.9725275 L8.32076211,22.2252747 C8.10529295,22.4850979 7.76509658,22.6079946 7.43236739,22.5462095 C7.0996382,22.4844243 6.82684047,22.2476994 6.71997863,21.928022 L3.74252137,14.010989 C3.52172365,13.3516484 2.83449074,12.8928571 2.07218661,12.8928571 C1.91004602,12.8927924 1.74865757,12.9147909 1.59250356,12.9582418 C1.09469574,13.1000075 0.674889443,13.4347404 0.42724359,13.8873626 C0.221949829,14.2548993 0.178208389,14.6904967 0.306356838,15.0912088 L4.92710114,28.0769231 C5.09987536,28.5983516 5.56907051,28.978022 6.18233618,29.0923077 C6.8292735,29.2137363 7.46461895,29.0071429 7.83831909,28.5549451 L18.8831731,14.3208791 L18.986948,14.3681319 C21.2619003,15.4035551 23.9145455,15.183811 25.9862522,13.7883123 C28.057959,12.3928135 29.2491299,10.0233685 29.1292913,7.53626374 Z M22.9005876,11.967033 C22.3201326,12.0997396 21.7178861,12.1074203 21.1342058,11.9895604 L20.8874644,11.9401099 L22.475,10.0549451 C23.1213061,9.28099579 23.0158018,8.1322493 22.239224,7.48778022 C21.4626462,6.84331114 20.308427,6.94663401 19.6598291,7.71868132 L18.1026531,9.56043956 L18.014886,9.31758242 C17.9529894,9.15194254 17.9017346,8.9825533 17.8614316,8.81043956 C17.8075759,8.56919685 17.7747026,8.32378374 17.7631766,8.07692308 C17.6594409,5.90660358 19.2387412,4.0170575 21.4015952,3.72375488 C23.5644493,3.43045225 25.5940028,4.83060505 26.0773148,6.94945055 C26.1318703,7.18916849 26.1656658,7.43310306 26.1783298,7.67857143 C26.2796733,9.7115262 24.8959708,11.521905 22.9005876,11.967033 Z" id="Shape" fill="#7A7A7A"></path>
-            <ellipse id="Oval" fill="#7A7A7A" cx="28.870958" cy="27.2368132" rx="1.89610043" ry="1.88736264"></ellipse>
-        </g>
-    </svg>
+      <main class="docs__main" id="content">
 
-    <div id="title">
-        Developers
+        <header class="article__header">
+          <p class="vp-eyebrow vp-eyebrow--teal">Changelog</p>
+          <h1 class="article__title">{{ page.title }}</h1>
+        </header>
+
+        <form class="compare__form select_to_change" onsubmit="dodiff(); return false;">
+          <div class="compare__field compare__field--platform">
+            <label class="vp-eyebrow" for="compare_platform">Platform</label>
+            <div class="vp-select">
+              <select id="compare_platform" onchange="changeType(this.value)">
+                <option value="ios_one">iOS</option>
+                <option value="android_one">Android</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="compare__field">
+            <span class="vp-eyebrow">From version</span>
+            <div class="vp-select">
+              <select id="diff_ios_1" class="select_version ios_one" aria-label="From version (iOS)">
+                <option value="">Please choose...</option>
+                {% for p in site.categories.ios %}
+                <option value="ios_{{ p.version }}">{{ p.version }}</option>
+                {% endfor %}
+              </select>
+              <select id="diff_android_1" class="select_version android_one" aria-label="From version (Android)">
+                <option value="">Please choose...</option>
+                {% for p in site.categories.android %}
+                <option value="android_{{ p.version }}">{{ p.version }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="compare__field">
+            <span class="vp-eyebrow">To version</span>
+            <div class="vp-select">
+              <select id="diff_ios_2" class="select_version ios_one" aria-label="To version (iOS)">
+                <option value="">Please choose...</option>
+                {% for p in site.categories.ios %}
+                <option value="ios_{{ p.version }}">{{ p.version }}</option>
+                {% endfor %}
+              </select>
+              <select id="diff_android_2" class="select_version android_one" aria-label="To version (Android)">
+                <option value="">Please choose...</option>
+                {% for p in site.categories.android %}
+                <option value="android_{{ p.version }}">{{ p.version }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="compare__actions">
+            <button type="submit" class="vp-btn vp-btn--primary">See Differences</button>
+          </div>
+        </form>
+
+        {{ content }}
+
+      </main>
     </div>
 
-    <a href="https://developer.veep.io" id="documentation">
-        Developer Portal
-    </a>
-
-
-</header>
-
-<div id="white_space_top">
-</div>
-
-
-<div id="all_versions">
-            <h4>PLATFORM</h4>
-
-            {% for cat in site.categories %}
-              <a id="btn_{{ cat[0] }}" onclick="loadPlatform('{{ cat[0] }}')">{{ cat[0] }}</a> <br />
-            {% endfor %}
-
-
-
-            <br />
-
-
-            <h4>SDK Version</h4>
-
-            {% assign url_parts = page.url | split: '/' %}
-            {% assign url_parts_size = url_parts | size %}
-            {% assign rm = url_parts | last %}
-            {% assign ff = url_parts[0] %}
-            {% assign index = 0 %}
-
-           
-            <select id="ios_select" class="select_version" onchange="gotourl(this.value)">
-            
-             {% for p in site.categories.ios %}
-                    
-                    {% assign loopindex = forloop.index %}                    
-
-                    {% assign filename = node_url_parts | last %}
-                    {% assign node_url_parts = p.url | split: '/' %}
-                    {% assign node_url_parts_size = node_url_parts | size %}
-                    
-            
-                    {% if node_url_parts == url_parts and filename != 'index.html' %}
-                    <option value="{{ p.url }}" selected>{{ p.version }}</option>
-
-                    {% else %}
-                        {% if url_parts_size == 0 and loopindex == 1 %}
-                            <option value="{{ p.url }}" selected>{{ p.version }}</option>
-                        {% else %}
-                            <option value="{{ p.url }}">{{ p.version }}</option>
-                        {% endif %}
-
-                    {% endif %} 
-
-              {% endfor %}
-              </select>
-
-              <select id="android_select" class="select_version" onchange="gotourl(this.value)">
-            
-             {% for p in site.categories.android %}
-                    
-                    {% assign loopindex = forloop.index %}                    
-
-                    {% assign filename = node_url_parts | last %}
-                    {% assign node_url_parts = p.url | split: '/' %}
-                    {% assign node_url_parts_size = node_url_parts | size %}
-                    
-            
-                    {% if node_url_parts == url_parts and filename != 'index.html' %}
-                    <option value="{{ p.url }}" selected>{{ p.version }}</option>
-
-                    {% else %}
-                        {% if url_parts_size == 0 and loopindex == 1 %}
-                            <option value="{{ p.url }}" selected>{{ p.version }}</option>
-                        {% else %}
-                            <option value="{{ p.url }}">{{ p.version }}</option>
-                        {% endif %}
-
-                    {% endif %} 
-
-              {% endfor %}
-              </select>
-
-              <br />
-              <a href="/whats-changed/" class="">What's Changed?</a> <br />
-
-
-
-             <script>
-
-                function gotourl(url){
-                    window.location = url;
-                }
-
-                function loadPlatform(plat, forward = true){
-                    var ios = document.getElementById('ios_select');
-                    var android = document.getElementById('android_select');
-                    if(plat == "ios"){
-                       ios.style.display = "block";
-                       android.style.display = "none";
-                       if(forward == true){
-                         window.location = document.getElementById('ios_select')[0].value;
-                        }
-                        document.getElementById('btn_android').style.textDecoration = "none";
-                        document.getElementById('btn_android').style.fontWeight = "normal";
-                        document.getElementById('btn_android').style.color = "rgb(43, 178, 184)";
-                        document.getElementById('btn_ios').style.textDecoration = "underline";
-                        document.getElementById('btn_ios').style.fontWeight = "bolder";
-                        document.getElementById('btn_ios').style.color = "#333";
-
-                    } else {
-                       ios.style.display = "none";
-                       android.style.display = "block";
-                       if(forward == true){
-                            window.location = document.getElementById('android_select')[0].value;
-                       }
-                       document.getElementById('btn_android').style.textDecoration = "underline";
-                       document.getElementById('btn_android').style.fontWeight = "bolder";
-                       document.getElementById('btn_android').style.color = "#333";
-                       document.getElementById('btn_ios').style.color = "rgb(43, 178, 184)";
-                       document.getElementById('btn_ios').style.fontWeight = "normal";
-                       document.getElementById('btn_ios').style.textDecoration = "none";
-                    }
-                }
-
-                loadPlatform("ios", false);
-
-            </script>
-
-
-
-
-            </div>
-
-
-
-    <div class="page-content">
-      <div class="container">
-        <div class="three columns">
-          {% include header.html %}
-        </div>
-
-        <div id="central_part" class="nine columns" style="z-index:100;">
-
-
-        
-
-          
-          <div class="wrapper">
-
-          <table width="90%" class="select_to_change">
-                <tr>
-                  <td colspan="2"> 
-
-                    PLATFORM
-                    <br />
-                    <select onchange="changeType(this.value)">
-                          <option value="ios_one">iOS</option>                  
-                          <option value="android_one" >Android</option>                  
-                    </select>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-
-                      FROM VERSION
-                      <br />
-
-                       <select id="diff_ios_1" class="select_version ios_one">
-                              <option value="" >Please choose...</option>
-
-                             {% for p in site.categories.ios %}
-                                    
-                                    {% assign loopindex = forloop.index %}                    
-
-                                    {% assign filename = node_url_parts | last %}
-                                    {% assign node_url_parts = p.url | split: '/' %}
-                                    {% assign node_url_parts_size = node_url_parts | size %}
-                                    
-                            
-                                    <option value="ios_{{ p.version }}" >{{ p.version }}</option>                  
-
-                              {% endfor %}
-                          </select>
-
-
-                          <select id="diff_android_1" class="select_version android_one">
-                        
-                              <option value="" >Please choose...</option>
-
-                         {% for p in site.categories.android %}
-                                
-                                {% assign loopindex = forloop.index %}                    
-
-                                {% assign filename = node_url_parts | last %}
-                                {% assign node_url_parts = p.url | split: '/' %}
-                                {% assign node_url_parts_size = node_url_parts | size %}
-                                
-                        
-                                <option value="android_{{ p.version }}" >{{ p.version }}</option>
-
-                          
-                          {% endfor %}
-                          </select>
-                  </td>
-                  <td>
-
-
-                      TO VERSION
-                      <br />
-
-                      <select id="diff_android_2" class="select_version android_one">
-            
-                              <option value="" >Please choose...</option>
-
-                       {% for p in site.categories.android %}
-                              
-                              {% assign loopindex = forloop.index %}                    
-
-                              {% assign filename = node_url_parts | last %}
-                              {% assign node_url_parts = p.url | split: '/' %}
-                              {% assign node_url_parts_size = node_url_parts | size %}
-                              
-                      
-                              <option value="android_{{ p.version }}" >{{ p.version }}</option>
-
-                        
-                        {% endfor %}
-                        </select>
-
-                         <select id="diff_ios_2" class="select_version ios_one">
-                                        <option value="" >Please choose...</option>
-
-                       {% for p in site.categories.ios %}
-                              
-                              {% assign loopindex = forloop.index %}                    
-
-                              {% assign filename = node_url_parts | last %}
-                              {% assign node_url_parts = p.url | split: '/' %}
-                              {% assign node_url_parts_size = node_url_parts | size %}
-                              
-                      
-                              <option value="ios_{{ p.version }}" >{{ p.version }}</option>                  
-
-                        {% endfor %}
-                        </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <button onclick="dodiff()">See Differences</button>
-
-                  </td>
-                </tr>
-              </table>
-
-          </div>
-        </div>
-      </div>
-       {% include footer.html %}
-
-     </div>
-
-
- <script>  
-
- var from_version;
- var to_version;
- var selected_type;
- 
- function changeType(clazz){
-  console.log("TYPE IS ", clazz);
-  if(clazz == "ios_one"){
-    $(".ios_one").show();
-    $(".android_one").hide();
-    selected_type = "ios";
-  } else {
-    $(".ios_one").hide();
-    $(".android_one").show();
-    selected_type = "android";
-  }
-
-
-
- }
-  changeType("ios_one");
-
-  function dodiff(){
-    // console.log("MAKE ME DIFFS INIT", document.getElementById("is_a").value);
-    ios = (selected_type == "ios") ? true : false ;
-    from = (ios == true) ? document.getElementById("diff_ios_1").options[document.getElementById("diff_ios_1").selectedIndex].value : document.getElementById("diff_android_1").options[document.getElementById("diff_android_1").selectedIndex].value;
-    to = (ios == true) ? document.getElementById("diff_ios_2").options[document.getElementById("diff_ios_2").selectedIndex].value : document.getElementById("diff_android_2").options[document.getElementById("diff_android_2").selectedIndex].value;
-    console.log("FROM ", from);
-    console.log("TO ", to);
-    from_version = from.replace("_", " ");
-    to_version = to.replace("_", " ");
-    a = document.getElementById(from).innerHTML.replace(/<(?:.|\n)*?>/gm, '');
-    b = document.getElementById(to).innerHTML.replace(/<(?:.|\n)*?>/gm, '');
-    diffUsingJS(0);
-  }
-
-
-function diffUsingJS(viewType) {
-  "use strict";
-  var byId = function (id) { return document.getElementById(id); },
-    base = difflib.stringAsLines(a),
-    newtxt = difflib.stringAsLines(b),
-    sm = new difflib.SequenceMatcher(base, newtxt),
-    opcodes = sm.get_opcodes(),
-    diffoutputdiv = byId("diffoutput");
-    console.log("SM", sm);
-
-  diffoutputdiv.innerHTML = "";
-
-  diffoutputdiv.appendChild(diffview.buildView({
-    baseTextLines: base,
-    newTextLines: newtxt,
-    opcodes: opcodes,
-    baseTextName: from_version,
-    newTextName: to_version,
-    contextSize: 0,
-    viewType: viewType
-  }));
-}
-
-  </script>
-
-            {{ content }}
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114402605-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-114402605-1');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -->
+    {% include footer.html %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script src="{{ "/assets/2diff.js" | prepend: site.baseurl }}"></script>
+    <script>
+      loadPlatform("ios", false);
+
+      var from_version;
+      var to_version;
+      var selected_type;
+      var a, b;
+
+      function changeType(clazz){
+        if(clazz == "ios_one"){
+          $(".ios_one").show();
+          $(".android_one").hide();
+          selected_type = "ios";
+        } else {
+          $(".ios_one").hide();
+          $(".android_one").show();
+          selected_type = "android";
+        }
+      }
+      changeType("ios_one");
+
+      function dodiff(){
+        var ios = (selected_type == "ios");
+        var fromSel = document.getElementById(ios ? "diff_ios_1" : "diff_android_1");
+        var toSel = document.getElementById(ios ? "diff_ios_2" : "diff_android_2");
+        var from = fromSel.options[fromSel.selectedIndex].value;
+        var to = toSel.options[toSel.selectedIndex].value;
+        if (!from || !to) { return; }
+        from_version = from.replace("_", " ");
+        to_version = to.replace("_", " ");
+        a = document.getElementById(from).textContent;
+        b = document.getElementById(to).textContent;
+        diffUsingJS(0);
+      }
+
+      function diffUsingJS(viewType) {
+        "use strict";
+        var byId = function (id) { return document.getElementById(id); },
+          base = difflib.stringAsLines(a),
+          newtxt = difflib.stringAsLines(b),
+          sm = new difflib.SequenceMatcher(base, newtxt),
+          opcodes = sm.get_opcodes(),
+          diffoutputdiv = byId("diffoutput");
+
+        diffoutputdiv.innerHTML = "";
+
+        diffoutputdiv.appendChild(diffview.buildView({
+          baseTextLines: base,
+          newTextLines: newtxt,
+          opcodes: opcodes,
+          baseTextName: from_version,
+          newTextName: to_version,
+          contextSize: 0,
+          viewType: viewType
+        }));
+      }
+    </script>
+
+    {% include analytics.html %}
   </body>
 </html>

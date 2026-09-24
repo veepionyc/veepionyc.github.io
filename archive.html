@@ -3,9 +3,11 @@ layout: default
 title: Archive
 ---
 
-<div>
+<div class="article">
 
-  <h2>Archive</h2>
+  <header class="article__header">
+    <h1 class="article__title">Archive</h1>
+  </header>
 
   <section class="archive_list">
     {% for category in site.categories %}
@@ -25,10 +27,4 @@ title: Archive
     {% endfor %}
 
   </section>
-
-  <footer class="article-footer" mar>
-    {% include author.html %}
-  </footer>
 </div>
-
-

@@ -1,0 +1,62 @@
+/*
+ * VEEPIO design tokens — mirrors veep.io (veepio-website2026/src/_tokens.scss)
+ * and the 2026 developer portal. Colour, type, spacing and motion live here;
+ * the rest of the stylesheet only references these custom properties.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- colour ---- */
+  --vp-bg: #060d0a;
+  --vp-surface: #0c1712;
+  --vp-surface-2: #10201a;
+  --vp-surface-deep: #07110d;
+  --vp-line: rgba(255, 255, 255, 0.08);
+  --vp-line-strong: rgba(255, 255, 255, 0.2);
+  --vp-ink: #f2f0ea;
+  --vp-ink-85: rgba(242, 240, 234, 0.85);
+  --vp-ink-70: rgba(242, 240, 234, 0.7);
+  --vp-ink-50: rgba(242, 240, 234, 0.62);
+  --vp-gold: #e2b84a;
+  --vp-gold-light: #f6dc8f;
+  --vp-gold-deep: #9c7424;
+  --vp-teal: #16d9c8;
+  --vp-teal-soft: #7fe9df;
+  --vp-danger-soft: #ff9a91;
+
+  /* ---- type ---- */
+  --vp-font-display: 'Oswald', 'Oswald Fallback', Impact, system-ui, sans-serif;
+  --vp-font-body: 'Figtree', 'Figtree Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --vp-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --vp-t-title: clamp(34px, 4.5vw, 56px);
+  --vp-t-h2: clamp(26px, 3vw, 34px);
+  --vp-t-h3: 20px;
+  --vp-t-body: 17px;
+  --vp-t-small: 15px;
+  --vp-t-eyebrow: 12px;
+  --vp-t-nav: 14px;
+  --vp-t-code: 13.5px;
+
+  /* ---- layout ---- */
+  --vp-nav-h: 72px;
+  --vp-gutter: clamp(18px, 5vw, 64px);
+  --vp-container: 1280px;
+  --vp-sidebar-w: 240px;
+  --vp-measure: 72ch;
+
+  /* ---- radius ---- */
+  --vp-r-card: 24px;
+  --vp-r-panel: 16px;
+  --vp-r-chip: 12px;
+  --vp-r-pill: 999px;
+
+  /* ---- elevation ---- */
+  --vp-blur-nav: blur(18px) saturate(140%);
+
+  /* ---- motion ---- */
+  --vp-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --vp-dur-fast: 200ms;
+  --vp-dur-base: 300ms;
+}

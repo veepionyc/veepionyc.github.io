@@ -1,58 +1,21 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#060d0a">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <!-- evil icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon-32.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" href="{{ "/assets/apple-touch-icon.png" | prepend: site.baseurl }}">
 
-  <link rel="stylesheet" href="{{"/assets/evil-icons.min.css" | prepend:site.baseurl }}">
-  <script src="{{"/assets/evil-icons.min.js" | prepend:site.baseurl }}"></script>
-
-  <!-- todo: include this into main.css -->
-
+  <link rel="preload" href="{{ "/assets/fonts/oswald-latin-var.woff2" | prepend: site.baseurl }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "/assets/fonts/figtree-latin-var.woff2" | prepend: site.baseurl }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js">  </script>
 
-  <base href="/" />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/scala.min.js"></script>
-
-<!--   <script src="{{"/assets/diff2html-ui.min.js" | prepend:site.baseurl }}"></script>
-  <script src="{{"/assets/diff2html.min.js" | prepend:site.baseurl }}"></script> 
-<script src="http://incaseofstairs.com/jsdiff/diff.js"></script>
-
-  -->
-
-<script src="{{"/assets/2diff.js" | prepend:site.baseurl }}"></script>
-
-  <style>
-    .green{
-      background: green;
-      color: #000;
-      text-decoration: none;
-    }
-    .grey{
-      background: #fff;
-      color: #333;
-      text-decoration: none;
-    }
-    .red{
-      background: #f00;
-      color: #000;
-      text-decoration: none;
-    }
-  </style>
-
-
-
-
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
 </head>

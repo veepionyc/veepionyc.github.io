@@ -1,0 +1,39 @@
+/*
+ * Self-hosted variable fonts — the same latin-subset files veep.io serves.
+ * The "Fallback" faces are metric-adjusted local fonts so text lays out at
+ * almost the final metrics while the webfont loads (no visible reflow).
+ */
+
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/assets/fonts/figtree-latin-var.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('/assets/fonts/oswald-latin-var.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Figtree Fallback';
+  src: local('Helvetica Neue'), local('Arial'), local('Roboto');
+  size-adjust: 102%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Oswald Fallback';
+  src: local('Haettenschweiler'), local('Impact'), local('Arial Narrow'), local('Roboto Condensed');
+  size-adjust: 89%;
+  ascent-override: 130%;
+  descent-override: 32%;
+  line-gap-override: 0%;
+}
